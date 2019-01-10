@@ -22,7 +22,7 @@ please follow the procedure in ["Publishing npm packages"](https://docs.npmjs.co
 Then install it via:
 
 ```shell
-npm install topological_inventory --save
+npm install --save @manageiq/topological_inventory
 ```
 
 #### git
@@ -66,6 +66,32 @@ module: {
 ```
 
 ## Getting Started
+
+Using the client on Insights:
+```javascript
+
+var TopologicalInventory = require('@manageiq/topological_inventory');
+
+const SOURCES_API_BASE = '/r/insights/platform/topological-inventory/v0.0'
+
+var defaultClient = TopologicalInventory.ApiClient.instance;
+defaultClient.basePath = SOURCES_API_BASE;
+
+let apiInstance = new TopologicalInventory.DefaultApi();
+
+...
+    let sourceData = {
+        tenant_id: 1, // FIXME: where do I get it?
+        name: formData.name,
+        source_type_id: 1, // FIXME should come from the form
+    };
+
+    return apiInstance.createSource(sourceData).then((sourceDataOut) => {
+        console.log('API call createSource returned data: ', sourceDataOut);
+...
+```
+
+(original documentation below)
 
 Please follow the [installation](#installation) instruction and execute the following JS code:
 
