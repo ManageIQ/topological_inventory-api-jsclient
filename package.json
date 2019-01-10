@@ -1,6 +1,6 @@
 {
   "name": "topological_inventory",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Topological_Inventory",
   "license": "Apache 2.0",
   "main": "dist/main.js",
