@@ -8,3 +8,8 @@ deploy:
     script:
     - npx semantic-release
     skip_cleanup: true
+after_success:
+  branches:
+    only:
+      - master
+  - npm run build
