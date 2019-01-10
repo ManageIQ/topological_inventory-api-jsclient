@@ -1,3 +1,4 @@
+---
 language: node_js
 node_js:
   - "8"
@@ -5,11 +6,9 @@ deploy:
   - provider: script
     on:
       branch: master
-    script:
-    - npx semantic-release
+    script: npx semantic-release
     skip_cleanup: true
 after_success:
-  branches:
-    only:
-      - master
-  - npm run build
+  - if [[ $TRAVIS_PULL_REQUEST == 'false' ]] && [[ $TRAVIS_BRANCH == 'master' ]]; then
+      npm run build
+    fi
