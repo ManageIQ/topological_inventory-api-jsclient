@@ -1,6 +1,6 @@
 {
   "name": "@manageiq/topological_inventory",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Topological_Inventory",
   "license": "Apache 2.0",
   "main": "dist/main.js",
