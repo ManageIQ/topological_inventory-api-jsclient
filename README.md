@@ -1,5 +1,7 @@
 # topological_inventory
 
+[![Build Status](https://travis-ci.org/ManageIQ/topological_inventory-api-jsclient.svg?branch=master)](https://travis-ci.org/ManageIQ/topological_inventory-api-jsclient)
+
 To be used by topology_inventory_ui and others.
 
 TopologicalInventory - JavaScript client for topological_inventory
