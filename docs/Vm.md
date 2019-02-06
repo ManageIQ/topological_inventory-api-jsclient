@@ -1,4 +1,4 @@
-# TopologicalInventory.Vm
+# @ManageiqTopologicalInventory.Vm
 
 ## Properties
 Name | Type | Description | Notes
@@ -18,5 +18,7 @@ Name | Type | Description | Notes
 **memory** | **Number** | Total RAM in bytes | [optional] 
 **orchestrationStackId** | **String** |  | [optional] 
 **flavorId** | **String** |  | [optional] 
+**taggings** | [**[Tagging]**](Tagging.md) |  | [optional] 
+**archivedAt** | **Date** |  | [optional] 
 
 

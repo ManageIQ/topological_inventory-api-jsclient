@@ -1,4 +1,4 @@
-# TopologicalInventory.Authentication
+# @ManageiqTopologicalInventory.Authentication
 
 ## Properties
 Name | Type | Description | Notes
@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **resourceId** | **String** |  | [optional] 
 **status** | **String** |  | [optional] 
 **statusDetails** | **String** |  | [optional] 
-**userid** | **String** |  | [optional] 
+**username** | **String** |  | [optional] 
+**password** | **String** |  | [optional] 
 
 

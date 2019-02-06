@@ -1,4 +1,4 @@
-# TopologicalInventory.SourceType
+# @ManageiqTopologicalInventory.SourceType
 
 ## Properties
 Name | Type | Description | Notes
@@ -7,6 +7,6 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **productName** | **String** |  | 
 **vendor** | **String** |  | 
-**schema** | **Object** |  | [optional] 
+**schema** | [**Object**](.md) |  | [optional] 
 
 

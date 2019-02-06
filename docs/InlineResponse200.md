@@ -1,4 +1,4 @@
-# TopologicalInventory.InlineResponse200
+# @ManageiqTopologicalInventory.InlineResponse200
 
 ## Properties
 Name | Type | Description | Notes

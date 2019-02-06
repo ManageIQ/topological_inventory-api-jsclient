@@ -1,4 +1,4 @@
-# TopologicalInventory.OrchestrationStack
+# @ManageiqTopologicalInventory.OrchestrationStack
 
 ## Properties
 Name | Type | Description | Notes
@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **sourceId** | **String** |  | [optional] 
 **sourceRef** | **String** |  | [optional] 
 **tenantId** | **String** |  | [optional] 
+**archivedAt** | **Date** |  | [optional] 
 
 
