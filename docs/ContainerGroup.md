@@ -1,4 +1,4 @@
-# TopologicalInventory.ContainerGroup
+# @ManageiqTopologicalInventory.ContainerGroup
 
 ## Properties
 Name | Type | Description | Notes
@@ -13,5 +13,7 @@ Name | Type | Description | Notes
 **sourceId** | **String** |  | [optional] 
 **sourceRef** | **String** |  | [optional] 
 **tenantId** | **String** |  | [optional] 
+**taggings** | [**[Tagging]**](Tagging.md) |  | [optional] 
+**archivedAt** | **Date** |  | [optional] 
 
 

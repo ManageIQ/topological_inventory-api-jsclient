@@ -1,6 +1,6 @@
-# TopologicalInventory.DefaultApi
+# @ManageiqTopologicalInventory.DefaultApi
 
-All URIs are relative to *https://virtserver.swaggerhub.com/r/insights/platform/topological-inventory/v0.0*
+All URIs are relative to *https://virtserver.swaggerhub.com/r/insights/platform/topological-inventory/v0.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,6 +26,7 @@ Method | HTTP request | Description
 [**listFlavors**](DefaultApi.md#listFlavors) | **GET** /flavors | List Flavors
 [**listOrchestrationStacks**](DefaultApi.md#listOrchestrationStacks) | **GET** /orchestration_stacks | List OrchestrationStacks
 [**listServiceInstances**](DefaultApi.md#listServiceInstances) | **GET** /service_instances | List ServiceInstances
+[**listServiceOfferingIcons**](DefaultApi.md#listServiceOfferingIcons) | **GET** /service_offering_icons | List ServiceOfferingIcons
 [**listServiceOfferingServiceInstances**](DefaultApi.md#listServiceOfferingServiceInstances) | **GET** /service_offerings/{id}/service_instances | List ServiceInstances for ServiceOffering
 [**listServiceOfferingServicePlans**](DefaultApi.md#listServiceOfferingServicePlans) | **GET** /service_offerings/{id}/service_plans | List ServicePlans for ServiceOffering
 [**listServiceOfferings**](DefaultApi.md#listServiceOfferings) | **GET** /service_offerings | List ServiceOfferings
@@ -48,6 +49,7 @@ Method | HTTP request | Description
 [**listSourceVolumeTypes**](DefaultApi.md#listSourceVolumeTypes) | **GET** /sources/{id}/volume_types | List VolumeTypes for Source
 [**listSourceVolumes**](DefaultApi.md#listSourceVolumes) | **GET** /sources/{id}/volumes | List Volumes for Source
 [**listSources**](DefaultApi.md#listSources) | **GET** /sources | List Sources
+[**listTags**](DefaultApi.md#listTags) | **GET** /tags | List Tags
 [**listTasks**](DefaultApi.md#listTasks) | **GET** /tasks | List Tasks
 [**listVmVolumeAttachments**](DefaultApi.md#listVmVolumeAttachments) | **GET** /vms/{id}/volume_attachments | List VolumeAttachments for Vm
 [**listVmVolumes**](DefaultApi.md#listVmVolumes) | **GET** /vms/{id}/volumes | List Volumes for Vm
@@ -56,9 +58,6 @@ Method | HTTP request | Description
 [**listVolumeTypes**](DefaultApi.md#listVolumeTypes) | **GET** /volume_types | List VolumeTypes
 [**listVolumes**](DefaultApi.md#listVolumes) | **GET** /volumes | List Volumes
 [**orderServicePlan**](DefaultApi.md#orderServicePlan) | **POST** /service_plans/{id}/order | Order an existing ServicePlan
-[**replaceAuthentication**](DefaultApi.md#replaceAuthentication) | **PUT** /authentications/{id} | Replace an existing Authentication
-[**replaceEndpoint**](DefaultApi.md#replaceEndpoint) | **PUT** /endpoints/{id} | Replace an existing Endpoint
-[**replaceSource**](DefaultApi.md#replaceSource) | **PUT** /sources/{id} | Replace an existing Source
 [**showAuthentication**](DefaultApi.md#showAuthentication) | **GET** /authentications/{id} | Show an existing Authentication
 [**showContainer**](DefaultApi.md#showContainer) | **GET** /containers/{id} | Show an existing Container
 [**showContainerGroup**](DefaultApi.md#showContainerGroup) | **GET** /container_groups/{id} | Show an existing ContainerGroup
@@ -71,9 +70,11 @@ Method | HTTP request | Description
 [**showOrchestrationStack**](DefaultApi.md#showOrchestrationStack) | **GET** /orchestration_stacks/{id} | Show an existing OrchestrationStack
 [**showServiceInstance**](DefaultApi.md#showServiceInstance) | **GET** /service_instances/{id} | Show an existing ServiceInstance
 [**showServiceOffering**](DefaultApi.md#showServiceOffering) | **GET** /service_offerings/{id} | Show an existing ServiceOffering
+[**showServiceOfferingIcon**](DefaultApi.md#showServiceOfferingIcon) | **GET** /service_offering_icons/{id} | Show an existing ServiceOfferingIcon
 [**showServicePlan**](DefaultApi.md#showServicePlan) | **GET** /service_plans/{id} | Show an existing ServicePlan
 [**showSource**](DefaultApi.md#showSource) | **GET** /sources/{id} | Show an existing Source
 [**showSourceType**](DefaultApi.md#showSourceType) | **GET** /source_types/{id} | Show an existing SourceType
+[**showTag**](DefaultApi.md#showTag) | **GET** /tags/{id} | Show an existing Tag
 [**showTask**](DefaultApi.md#showTask) | **GET** /tasks/{id} | Show an existing Task
 [**showVm**](DefaultApi.md#showVm) | **GET** /vms/{id} | Show an existing Vm
 [**showVolume**](DefaultApi.md#showVolume) | **GET** /volumes/{id} | Show an existing Volume
@@ -86,7 +87,7 @@ Method | HTTP request | Description
 
 <a name="createAuthentication"></a>
 # **createAuthentication**
-> Object createAuthentication(body)
+> Object createAuthentication(authentication)
 
 Create a new Authentication
 
@@ -94,19 +95,17 @@ Creates a Authentication object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
-let body = new TopologicalInventory.ID(); // ID | 
-
-apiInstance.createAuthentication(body).then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let authentication = new @ManageiqTopologicalInventory.Authentication(); // Authentication | Authentication attributes to create
+apiInstance.createAuthentication(authentication).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -118,7 +117,7 @@ apiInstance.createAuthentication(body).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ID**](ID.md)|  | 
+ **authentication** | [**Authentication**](Authentication.md)| Authentication attributes to create | 
 
 ### Return type
 
@@ -135,7 +134,7 @@ Name | Type | Description  | Notes
 
 <a name="createEndpoint"></a>
 # **createEndpoint**
-> Object createEndpoint(body)
+> Object createEndpoint(endpoint)
 
 Create a new Endpoint
 
@@ -143,19 +142,17 @@ Creates a Endpoint object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
-let body = new TopologicalInventory.ID(); // ID | 
-
-apiInstance.createEndpoint(body).then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let endpoint = new @ManageiqTopologicalInventory.Endpoint(); // Endpoint | Endpoint attributes to create
+apiInstance.createEndpoint(endpoint).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -167,7 +164,7 @@ apiInstance.createEndpoint(body).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ID**](ID.md)|  | 
+ **endpoint** | [**Endpoint**](Endpoint.md)| Endpoint attributes to create | 
 
 ### Return type
 
@@ -184,7 +181,7 @@ Name | Type | Description  | Notes
 
 <a name="createSource"></a>
 # **createSource**
-> Object createSource(body)
+> Object createSource(source)
 
 Create a new Source
 
@@ -192,19 +189,17 @@ Creates a Source object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
-let body = new TopologicalInventory.ID(); // ID | 
-
-apiInstance.createSource(body).then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let source = new @ManageiqTopologicalInventory.Source(); // Source | Source attributes to create
+apiInstance.createSource(source).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -216,7 +211,7 @@ apiInstance.createSource(body).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ID**](ID.md)|  | 
+ **source** | [**Source**](Source.md)| Source attributes to create | 
 
 ### Return type
 
@@ -233,7 +228,7 @@ Name | Type | Description  | Notes
 
 <a name="createSourceType"></a>
 # **createSourceType**
-> Object createSourceType(body)
+> Object createSourceType(sourceType)
 
 Create a new SourceType
 
@@ -241,19 +236,17 @@ Creates a SourceType object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
-let body = new TopologicalInventory.ID(); // ID | 
-
-apiInstance.createSourceType(body).then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let sourceType = new @ManageiqTopologicalInventory.SourceType(); // SourceType | SourceType attributes to create
+apiInstance.createSourceType(sourceType).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -265,7 +258,7 @@ apiInstance.createSourceType(body).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ID**](ID.md)|  | 
+ **sourceType** | [**SourceType**](SourceType.md)| SourceType attributes to create | 
 
 ### Return type
 
@@ -290,18 +283,16 @@ Deletes a Authentication object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.deleteAuthentication(id).then(() => {
   console.log('API called successfully.');
 }, (error) => {
@@ -327,7 +318,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 <a name="deleteEndpoint"></a>
 # **deleteEndpoint**
@@ -339,18 +330,16 @@ Deletes a Endpoint object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.deleteEndpoint(id).then(() => {
   console.log('API called successfully.');
 }, (error) => {
@@ -376,7 +365,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 <a name="deleteSource"></a>
 # **deleteSource**
@@ -388,18 +377,16 @@ Deletes a Source object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.deleteSource(id).then(() => {
   console.log('API called successfully.');
 }, (error) => {
@@ -425,11 +412,11 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 <a name="listAuthentications"></a>
 # **listAuthentications**
-> [Authentication] listAuthentications()
+> AuthenticationsCollection listAuthentications(opts)
 
 List Authentications
 
@@ -437,16 +424,20 @@ Returns an array of Authentication objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-apiInstance.listAuthentications().then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listAuthentications(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -455,11 +446,15 @@ apiInstance.listAuthentications().then((data) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[Authentication]**](Authentication.md)
+[**AuthenticationsCollection**](AuthenticationsCollection.md)
 
 ### Authorization
 
@@ -472,7 +467,7 @@ This endpoint does not need any parameter.
 
 <a name="listContainerGroupContainers"></a>
 # **listContainerGroupContainers**
-> [Container] listContainerGroupContainers(id)
+> ContainersCollection listContainerGroupContainers(id, opts)
 
 List Containers for ContainerGroup
 
@@ -480,19 +475,21 @@ Returns an array of Container objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listContainerGroupContainers(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listContainerGroupContainers(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -505,10 +502,12 @@ apiInstance.listContainerGroupContainers(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[Container]**](Container.md)
+[**ContainersCollection**](ContainersCollection.md)
 
 ### Authorization
 
@@ -521,7 +520,7 @@ Name | Type | Description  | Notes
 
 <a name="listContainerGroups"></a>
 # **listContainerGroups**
-> [ContainerGroup] listContainerGroups()
+> ContainerGroupsCollection listContainerGroups(opts)
 
 List ContainerGroups
 
@@ -529,16 +528,20 @@ Returns an array of ContainerGroup objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-apiInstance.listContainerGroups().then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listContainerGroups(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -547,11 +550,15 @@ apiInstance.listContainerGroups().then((data) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[ContainerGroup]**](ContainerGroup.md)
+[**ContainerGroupsCollection**](ContainerGroupsCollection.md)
 
 ### Authorization
 
@@ -564,7 +571,7 @@ This endpoint does not need any parameter.
 
 <a name="listContainerImages"></a>
 # **listContainerImages**
-> [ContainerImage] listContainerImages()
+> ContainerImagesCollection listContainerImages(opts)
 
 List ContainerImages
 
@@ -572,16 +579,20 @@ Returns an array of ContainerImage objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-apiInstance.listContainerImages().then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listContainerImages(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -590,11 +601,15 @@ apiInstance.listContainerImages().then((data) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[ContainerImage]**](ContainerImage.md)
+[**ContainerImagesCollection**](ContainerImagesCollection.md)
 
 ### Authorization
 
@@ -607,7 +622,7 @@ This endpoint does not need any parameter.
 
 <a name="listContainerNodeContainerGroups"></a>
 # **listContainerNodeContainerGroups**
-> [ContainerGroup] listContainerNodeContainerGroups(id)
+> ContainerGroupsCollection listContainerNodeContainerGroups(id, opts)
 
 List ContainerGroups for ContainerNode
 
@@ -615,19 +630,21 @@ Returns an array of ContainerGroup objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listContainerNodeContainerGroups(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listContainerNodeContainerGroups(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -640,10 +657,12 @@ apiInstance.listContainerNodeContainerGroups(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[ContainerGroup]**](ContainerGroup.md)
+[**ContainerGroupsCollection**](ContainerGroupsCollection.md)
 
 ### Authorization
 
@@ -656,7 +675,7 @@ Name | Type | Description  | Notes
 
 <a name="listContainerNodes"></a>
 # **listContainerNodes**
-> [ContainerNode] listContainerNodes()
+> ContainerNodesCollection listContainerNodes(opts)
 
 List ContainerNodes
 
@@ -664,16 +683,20 @@ Returns an array of ContainerNode objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-apiInstance.listContainerNodes().then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listContainerNodes(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -682,11 +705,15 @@ apiInstance.listContainerNodes().then((data) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[ContainerNode]**](ContainerNode.md)
+[**ContainerNodesCollection**](ContainerNodesCollection.md)
 
 ### Authorization
 
@@ -699,7 +726,7 @@ This endpoint does not need any parameter.
 
 <a name="listContainerProjectContainerGroups"></a>
 # **listContainerProjectContainerGroups**
-> [ContainerGroup] listContainerProjectContainerGroups(id)
+> ContainerGroupsCollection listContainerProjectContainerGroups(id, opts)
 
 List ContainerGroups for ContainerProject
 
@@ -707,19 +734,21 @@ Returns an array of ContainerGroup objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listContainerProjectContainerGroups(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listContainerProjectContainerGroups(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -732,10 +761,12 @@ apiInstance.listContainerProjectContainerGroups(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[ContainerGroup]**](ContainerGroup.md)
+[**ContainerGroupsCollection**](ContainerGroupsCollection.md)
 
 ### Authorization
 
@@ -748,7 +779,7 @@ Name | Type | Description  | Notes
 
 <a name="listContainerProjectContainerTemplates"></a>
 # **listContainerProjectContainerTemplates**
-> [ContainerTemplate] listContainerProjectContainerTemplates(id)
+> ContainerTemplatesCollection listContainerProjectContainerTemplates(id, opts)
 
 List ContainerTemplates for ContainerProject
 
@@ -756,19 +787,21 @@ Returns an array of ContainerTemplate objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listContainerProjectContainerTemplates(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listContainerProjectContainerTemplates(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -781,10 +814,12 @@ apiInstance.listContainerProjectContainerTemplates(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[ContainerTemplate]**](ContainerTemplate.md)
+[**ContainerTemplatesCollection**](ContainerTemplatesCollection.md)
 
 ### Authorization
 
@@ -797,7 +832,7 @@ Name | Type | Description  | Notes
 
 <a name="listContainerProjects"></a>
 # **listContainerProjects**
-> [ContainerProject] listContainerProjects()
+> ContainerProjectsCollection listContainerProjects(opts)
 
 List ContainerProjects
 
@@ -805,16 +840,20 @@ Returns an array of ContainerProject objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-apiInstance.listContainerProjects().then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listContainerProjects(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -823,11 +862,15 @@ apiInstance.listContainerProjects().then((data) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[ContainerProject]**](ContainerProject.md)
+[**ContainerProjectsCollection**](ContainerProjectsCollection.md)
 
 ### Authorization
 
@@ -840,7 +883,7 @@ This endpoint does not need any parameter.
 
 <a name="listContainerTemplates"></a>
 # **listContainerTemplates**
-> [ContainerTemplate] listContainerTemplates()
+> ContainerTemplatesCollection listContainerTemplates(opts)
 
 List ContainerTemplates
 
@@ -848,16 +891,20 @@ Returns an array of ContainerTemplate objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-apiInstance.listContainerTemplates().then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listContainerTemplates(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -866,11 +913,15 @@ apiInstance.listContainerTemplates().then((data) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[ContainerTemplate]**](ContainerTemplate.md)
+[**ContainerTemplatesCollection**](ContainerTemplatesCollection.md)
 
 ### Authorization
 
@@ -883,7 +934,7 @@ This endpoint does not need any parameter.
 
 <a name="listContainers"></a>
 # **listContainers**
-> [Container] listContainers()
+> ContainersCollection listContainers(opts)
 
 List Containers
 
@@ -891,16 +942,20 @@ Returns an array of Container objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-apiInstance.listContainers().then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listContainers(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -909,11 +964,15 @@ apiInstance.listContainers().then((data) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[Container]**](Container.md)
+[**ContainersCollection**](ContainersCollection.md)
 
 ### Authorization
 
@@ -926,7 +985,7 @@ This endpoint does not need any parameter.
 
 <a name="listEndpoints"></a>
 # **listEndpoints**
-> [Endpoint] listEndpoints()
+> EndpointsCollection listEndpoints(opts)
 
 List Endpoints
 
@@ -934,16 +993,20 @@ Returns an array of Endpoint objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-apiInstance.listEndpoints().then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listEndpoints(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -952,11 +1015,15 @@ apiInstance.listEndpoints().then((data) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[Endpoint]**](Endpoint.md)
+[**EndpointsCollection**](EndpointsCollection.md)
 
 ### Authorization
 
@@ -969,7 +1036,7 @@ This endpoint does not need any parameter.
 
 <a name="listFlavors"></a>
 # **listFlavors**
-> [Flavor] listFlavors()
+> FlavorsCollection listFlavors(opts)
 
 List Flavors
 
@@ -977,16 +1044,20 @@ Returns an array of Flavor objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-apiInstance.listFlavors().then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listFlavors(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -995,11 +1066,15 @@ apiInstance.listFlavors().then((data) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[Flavor]**](Flavor.md)
+[**FlavorsCollection**](FlavorsCollection.md)
 
 ### Authorization
 
@@ -1012,7 +1087,7 @@ This endpoint does not need any parameter.
 
 <a name="listOrchestrationStacks"></a>
 # **listOrchestrationStacks**
-> [OrchestrationStack] listOrchestrationStacks()
+> OrchestrationStacksCollection listOrchestrationStacks(opts)
 
 List OrchestrationStacks
 
@@ -1020,16 +1095,20 @@ Returns an array of OrchestrationStack objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-apiInstance.listOrchestrationStacks().then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listOrchestrationStacks(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1038,11 +1117,15 @@ apiInstance.listOrchestrationStacks().then((data) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[OrchestrationStack]**](OrchestrationStack.md)
+[**OrchestrationStacksCollection**](OrchestrationStacksCollection.md)
 
 ### Authorization
 
@@ -1055,7 +1138,7 @@ This endpoint does not need any parameter.
 
 <a name="listServiceInstances"></a>
 # **listServiceInstances**
-> [ServiceInstance] listServiceInstances()
+> ServiceInstancesCollection listServiceInstances(opts)
 
 List ServiceInstances
 
@@ -1063,16 +1146,67 @@ Returns an array of ServiceInstance objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-apiInstance.listServiceInstances().then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listServiceInstances(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+
+### Return type
+
+[**ServiceInstancesCollection**](ServiceInstancesCollection.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="listServiceOfferingIcons"></a>
+# **listServiceOfferingIcons**
+> [ServiceOfferingIcon] listServiceOfferingIcons()
+
+List ServiceOfferingIcons
+
+Returns an array of ServiceOfferingIcon objects
+
+### Example
+```javascript
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
+
+// Configure HTTP basic authorization: UserSecurity
+let UserSecurity = defaultClient.authentications['UserSecurity'];
+UserSecurity.username = 'YOUR USERNAME';
+UserSecurity.password = 'YOUR PASSWORD';
+
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+apiInstance.listServiceOfferingIcons().then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1085,7 +1219,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**[ServiceInstance]**](ServiceInstance.md)
+[**[ServiceOfferingIcon]**](ServiceOfferingIcon.md)
 
 ### Authorization
 
@@ -1098,7 +1232,7 @@ This endpoint does not need any parameter.
 
 <a name="listServiceOfferingServiceInstances"></a>
 # **listServiceOfferingServiceInstances**
-> [ServiceInstance] listServiceOfferingServiceInstances(id)
+> ServiceInstancesCollection listServiceOfferingServiceInstances(id, opts)
 
 List ServiceInstances for ServiceOffering
 
@@ -1106,19 +1240,21 @@ Returns an array of ServiceInstance objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listServiceOfferingServiceInstances(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listServiceOfferingServiceInstances(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1131,10 +1267,12 @@ apiInstance.listServiceOfferingServiceInstances(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[ServiceInstance]**](ServiceInstance.md)
+[**ServiceInstancesCollection**](ServiceInstancesCollection.md)
 
 ### Authorization
 
@@ -1147,7 +1285,7 @@ Name | Type | Description  | Notes
 
 <a name="listServiceOfferingServicePlans"></a>
 # **listServiceOfferingServicePlans**
-> [ServicePlan] listServiceOfferingServicePlans(id)
+> ServicePlansCollection listServiceOfferingServicePlans(id, opts)
 
 List ServicePlans for ServiceOffering
 
@@ -1155,19 +1293,21 @@ Returns an array of ServicePlan objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listServiceOfferingServicePlans(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listServiceOfferingServicePlans(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1180,10 +1320,12 @@ apiInstance.listServiceOfferingServicePlans(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[ServicePlan]**](ServicePlan.md)
+[**ServicePlansCollection**](ServicePlansCollection.md)
 
 ### Authorization
 
@@ -1196,7 +1338,7 @@ Name | Type | Description  | Notes
 
 <a name="listServiceOfferings"></a>
 # **listServiceOfferings**
-> [ServiceOffering] listServiceOfferings()
+> ServiceOfferingsCollection listServiceOfferings(opts)
 
 List ServiceOfferings
 
@@ -1204,16 +1346,20 @@ Returns an array of ServiceOffering objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-apiInstance.listServiceOfferings().then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listServiceOfferings(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1222,11 +1368,15 @@ apiInstance.listServiceOfferings().then((data) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[ServiceOffering]**](ServiceOffering.md)
+[**ServiceOfferingsCollection**](ServiceOfferingsCollection.md)
 
 ### Authorization
 
@@ -1239,7 +1389,7 @@ This endpoint does not need any parameter.
 
 <a name="listServicePlanServiceInstances"></a>
 # **listServicePlanServiceInstances**
-> [ServiceInstance] listServicePlanServiceInstances(id)
+> ServiceInstancesCollection listServicePlanServiceInstances(id, opts)
 
 List ServiceInstances for ServicePlan
 
@@ -1247,19 +1397,21 @@ Returns an array of ServiceInstance objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listServicePlanServiceInstances(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listServicePlanServiceInstances(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1272,10 +1424,12 @@ apiInstance.listServicePlanServiceInstances(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[ServiceInstance]**](ServiceInstance.md)
+[**ServiceInstancesCollection**](ServiceInstancesCollection.md)
 
 ### Authorization
 
@@ -1288,7 +1442,7 @@ Name | Type | Description  | Notes
 
 <a name="listServicePlans"></a>
 # **listServicePlans**
-> [ServicePlan] listServicePlans()
+> ServicePlansCollection listServicePlans(opts)
 
 List ServicePlans
 
@@ -1296,16 +1450,20 @@ Returns an array of ServicePlan objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-apiInstance.listServicePlans().then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listServicePlans(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1314,11 +1472,15 @@ apiInstance.listServicePlans().then((data) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[ServicePlan]**](ServicePlan.md)
+[**ServicePlansCollection**](ServicePlansCollection.md)
 
 ### Authorization
 
@@ -1331,7 +1493,7 @@ This endpoint does not need any parameter.
 
 <a name="listSourceContainerGroups"></a>
 # **listSourceContainerGroups**
-> [ContainerGroup] listSourceContainerGroups(id)
+> ContainerGroupsCollection listSourceContainerGroups(id, opts)
 
 List ContainerGroups for Source
 
@@ -1339,19 +1501,21 @@ Returns an array of ContainerGroup objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listSourceContainerGroups(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listSourceContainerGroups(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1364,10 +1528,12 @@ apiInstance.listSourceContainerGroups(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[ContainerGroup]**](ContainerGroup.md)
+[**ContainerGroupsCollection**](ContainerGroupsCollection.md)
 
 ### Authorization
 
@@ -1380,7 +1546,7 @@ Name | Type | Description  | Notes
 
 <a name="listSourceContainerImages"></a>
 # **listSourceContainerImages**
-> [ContainerImage] listSourceContainerImages(id)
+> ContainerImagesCollection listSourceContainerImages(id, opts)
 
 List ContainerImages for Source
 
@@ -1388,19 +1554,21 @@ Returns an array of ContainerImage objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listSourceContainerImages(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listSourceContainerImages(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1413,10 +1581,12 @@ apiInstance.listSourceContainerImages(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[ContainerImage]**](ContainerImage.md)
+[**ContainerImagesCollection**](ContainerImagesCollection.md)
 
 ### Authorization
 
@@ -1429,7 +1599,7 @@ Name | Type | Description  | Notes
 
 <a name="listSourceContainerNodes"></a>
 # **listSourceContainerNodes**
-> [ContainerNode] listSourceContainerNodes(id)
+> ContainerNodesCollection listSourceContainerNodes(id, opts)
 
 List ContainerNodes for Source
 
@@ -1437,19 +1607,21 @@ Returns an array of ContainerNode objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listSourceContainerNodes(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listSourceContainerNodes(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1462,10 +1634,12 @@ apiInstance.listSourceContainerNodes(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[ContainerNode]**](ContainerNode.md)
+[**ContainerNodesCollection**](ContainerNodesCollection.md)
 
 ### Authorization
 
@@ -1478,7 +1652,7 @@ Name | Type | Description  | Notes
 
 <a name="listSourceContainerProjects"></a>
 # **listSourceContainerProjects**
-> [ContainerProject] listSourceContainerProjects(id)
+> ContainerProjectsCollection listSourceContainerProjects(id, opts)
 
 List ContainerProjects for Source
 
@@ -1486,19 +1660,21 @@ Returns an array of ContainerProject objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listSourceContainerProjects(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listSourceContainerProjects(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1511,10 +1687,12 @@ apiInstance.listSourceContainerProjects(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[ContainerProject]**](ContainerProject.md)
+[**ContainerProjectsCollection**](ContainerProjectsCollection.md)
 
 ### Authorization
 
@@ -1527,7 +1705,7 @@ Name | Type | Description  | Notes
 
 <a name="listSourceContainerTemplates"></a>
 # **listSourceContainerTemplates**
-> [ContainerTemplate] listSourceContainerTemplates(id)
+> ContainerTemplatesCollection listSourceContainerTemplates(id, opts)
 
 List ContainerTemplates for Source
 
@@ -1535,19 +1713,21 @@ Returns an array of ContainerTemplate objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listSourceContainerTemplates(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listSourceContainerTemplates(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1560,10 +1740,12 @@ apiInstance.listSourceContainerTemplates(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[ContainerTemplate]**](ContainerTemplate.md)
+[**ContainerTemplatesCollection**](ContainerTemplatesCollection.md)
 
 ### Authorization
 
@@ -1576,7 +1758,7 @@ Name | Type | Description  | Notes
 
 <a name="listSourceContainers"></a>
 # **listSourceContainers**
-> [Container] listSourceContainers(id)
+> ContainersCollection listSourceContainers(id, opts)
 
 List Containers for Source
 
@@ -1584,19 +1766,21 @@ Returns an array of Container objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listSourceContainers(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listSourceContainers(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1609,10 +1793,12 @@ apiInstance.listSourceContainers(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[Container]**](Container.md)
+[**ContainersCollection**](ContainersCollection.md)
 
 ### Authorization
 
@@ -1625,7 +1811,7 @@ Name | Type | Description  | Notes
 
 <a name="listSourceEndpoints"></a>
 # **listSourceEndpoints**
-> [Endpoint] listSourceEndpoints(id)
+> EndpointsCollection listSourceEndpoints(id, opts)
 
 List Endpoints for Source
 
@@ -1633,19 +1819,21 @@ Returns an array of Endpoint objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listSourceEndpoints(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listSourceEndpoints(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1658,10 +1846,12 @@ apiInstance.listSourceEndpoints(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[Endpoint]**](Endpoint.md)
+[**EndpointsCollection**](EndpointsCollection.md)
 
 ### Authorization
 
@@ -1674,7 +1864,7 @@ Name | Type | Description  | Notes
 
 <a name="listSourceOrchestrationStacks"></a>
 # **listSourceOrchestrationStacks**
-> [OrchestrationStack] listSourceOrchestrationStacks(id)
+> OrchestrationStacksCollection listSourceOrchestrationStacks(id, opts)
 
 List OrchestrationStacks for Source
 
@@ -1682,19 +1872,21 @@ Returns an array of OrchestrationStack objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listSourceOrchestrationStacks(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listSourceOrchestrationStacks(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1707,10 +1899,12 @@ apiInstance.listSourceOrchestrationStacks(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[OrchestrationStack]**](OrchestrationStack.md)
+[**OrchestrationStacksCollection**](OrchestrationStacksCollection.md)
 
 ### Authorization
 
@@ -1723,7 +1917,7 @@ Name | Type | Description  | Notes
 
 <a name="listSourceServiceInstances"></a>
 # **listSourceServiceInstances**
-> [ServiceInstance] listSourceServiceInstances(id)
+> ServiceInstancesCollection listSourceServiceInstances(id, opts)
 
 List ServiceInstances for Source
 
@@ -1731,19 +1925,21 @@ Returns an array of ServiceInstance objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listSourceServiceInstances(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listSourceServiceInstances(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1756,10 +1952,12 @@ apiInstance.listSourceServiceInstances(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[ServiceInstance]**](ServiceInstance.md)
+[**ServiceInstancesCollection**](ServiceInstancesCollection.md)
 
 ### Authorization
 
@@ -1772,7 +1970,7 @@ Name | Type | Description  | Notes
 
 <a name="listSourceServiceOfferings"></a>
 # **listSourceServiceOfferings**
-> [ServiceOffering] listSourceServiceOfferings(id)
+> ServiceOfferingsCollection listSourceServiceOfferings(id, opts)
 
 List ServiceOfferings for Source
 
@@ -1780,19 +1978,21 @@ Returns an array of ServiceOffering objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listSourceServiceOfferings(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listSourceServiceOfferings(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1805,10 +2005,12 @@ apiInstance.listSourceServiceOfferings(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[ServiceOffering]**](ServiceOffering.md)
+[**ServiceOfferingsCollection**](ServiceOfferingsCollection.md)
 
 ### Authorization
 
@@ -1821,7 +2023,7 @@ Name | Type | Description  | Notes
 
 <a name="listSourceServicePlans"></a>
 # **listSourceServicePlans**
-> [ServicePlan] listSourceServicePlans(id)
+> ServicePlansCollection listSourceServicePlans(id, opts)
 
 List ServicePlans for Source
 
@@ -1829,19 +2031,21 @@ Returns an array of ServicePlan objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listSourceServicePlans(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listSourceServicePlans(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1854,10 +2058,12 @@ apiInstance.listSourceServicePlans(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[ServicePlan]**](ServicePlan.md)
+[**ServicePlansCollection**](ServicePlansCollection.md)
 
 ### Authorization
 
@@ -1870,7 +2076,7 @@ Name | Type | Description  | Notes
 
 <a name="listSourceTypeSources"></a>
 # **listSourceTypeSources**
-> [Source] listSourceTypeSources(id)
+> SourcesCollection listSourceTypeSources(id, opts)
 
 List Sources for SourceType
 
@@ -1878,19 +2084,21 @@ Returns an array of Source objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listSourceTypeSources(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listSourceTypeSources(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1903,10 +2111,12 @@ apiInstance.listSourceTypeSources(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[Source]**](Source.md)
+[**SourcesCollection**](SourcesCollection.md)
 
 ### Authorization
 
@@ -1919,7 +2129,7 @@ Name | Type | Description  | Notes
 
 <a name="listSourceTypes"></a>
 # **listSourceTypes**
-> [SourceType] listSourceTypes()
+> SourceTypesCollection listSourceTypes(opts)
 
 List SourceTypes
 
@@ -1927,16 +2137,20 @@ Returns an array of SourceType objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-apiInstance.listSourceTypes().then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listSourceTypes(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1945,11 +2159,15 @@ apiInstance.listSourceTypes().then((data) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[SourceType]**](SourceType.md)
+[**SourceTypesCollection**](SourceTypesCollection.md)
 
 ### Authorization
 
@@ -1962,7 +2180,7 @@ This endpoint does not need any parameter.
 
 <a name="listSourceVms"></a>
 # **listSourceVms**
-> [Vm] listSourceVms(id)
+> VmsCollection listSourceVms(id, opts)
 
 List Vms for Source
 
@@ -1970,19 +2188,21 @@ Returns an array of Vm objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listSourceVms(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listSourceVms(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1995,10 +2215,12 @@ apiInstance.listSourceVms(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[Vm]**](Vm.md)
+[**VmsCollection**](VmsCollection.md)
 
 ### Authorization
 
@@ -2011,7 +2233,7 @@ Name | Type | Description  | Notes
 
 <a name="listSourceVolumeTypes"></a>
 # **listSourceVolumeTypes**
-> [VolumeType] listSourceVolumeTypes(id)
+> VolumeTypesCollection listSourceVolumeTypes(id, opts)
 
 List VolumeTypes for Source
 
@@ -2019,19 +2241,21 @@ Returns an array of VolumeType objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listSourceVolumeTypes(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listSourceVolumeTypes(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -2044,10 +2268,12 @@ apiInstance.listSourceVolumeTypes(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[VolumeType]**](VolumeType.md)
+[**VolumeTypesCollection**](VolumeTypesCollection.md)
 
 ### Authorization
 
@@ -2060,7 +2286,7 @@ Name | Type | Description  | Notes
 
 <a name="listSourceVolumes"></a>
 # **listSourceVolumes**
-> [Volume] listSourceVolumes(id)
+> VolumesCollection listSourceVolumes(id, opts)
 
 List Volumes for Source
 
@@ -2068,19 +2294,21 @@ Returns an array of Volume objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listSourceVolumes(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listSourceVolumes(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -2093,10 +2321,12 @@ apiInstance.listSourceVolumes(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[Volume]**](Volume.md)
+[**VolumesCollection**](VolumesCollection.md)
 
 ### Authorization
 
@@ -2109,7 +2339,7 @@ Name | Type | Description  | Notes
 
 <a name="listSources"></a>
 # **listSources**
-> [Source] listSources()
+> SourcesCollection listSources(opts)
 
 List Sources
 
@@ -2117,16 +2347,20 @@ Returns an array of Source objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-apiInstance.listSources().then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listSources(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -2135,11 +2369,66 @@ apiInstance.listSources().then((data) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[Source]**](Source.md)
+[**SourcesCollection**](SourcesCollection.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="listTags"></a>
+# **listTags**
+> TagsCollection listTags(opts)
+
+List Tags
+
+Returns an array of Tag objects
+
+### Example
+```javascript
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
+
+// Configure HTTP basic authorization: UserSecurity
+let UserSecurity = defaultClient.authentications['UserSecurity'];
+UserSecurity.username = 'YOUR USERNAME';
+UserSecurity.password = 'YOUR PASSWORD';
+
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listTags(opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+
+### Return type
+
+[**TagsCollection**](TagsCollection.md)
 
 ### Authorization
 
@@ -2152,7 +2441,7 @@ This endpoint does not need any parameter.
 
 <a name="listTasks"></a>
 # **listTasks**
-> [Task] listTasks()
+> TasksCollection listTasks(opts)
 
 List Tasks
 
@@ -2160,16 +2449,20 @@ Returns an array of Task objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-apiInstance.listTasks().then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listTasks(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -2178,11 +2471,15 @@ apiInstance.listTasks().then((data) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[Task]**](Task.md)
+[**TasksCollection**](TasksCollection.md)
 
 ### Authorization
 
@@ -2195,7 +2492,7 @@ This endpoint does not need any parameter.
 
 <a name="listVmVolumeAttachments"></a>
 # **listVmVolumeAttachments**
-> [VolumeAttachment] listVmVolumeAttachments(id)
+> VolumeAttachmentsCollection listVmVolumeAttachments(id, opts)
 
 List VolumeAttachments for Vm
 
@@ -2203,19 +2500,21 @@ Returns an array of VolumeAttachment objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listVmVolumeAttachments(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listVmVolumeAttachments(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -2228,10 +2527,12 @@ apiInstance.listVmVolumeAttachments(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[VolumeAttachment]**](VolumeAttachment.md)
+[**VolumeAttachmentsCollection**](VolumeAttachmentsCollection.md)
 
 ### Authorization
 
@@ -2244,7 +2545,7 @@ Name | Type | Description  | Notes
 
 <a name="listVmVolumes"></a>
 # **listVmVolumes**
-> [Volume] listVmVolumes(id)
+> VolumesCollection listVmVolumes(id, opts)
 
 List Volumes for Vm
 
@@ -2252,19 +2553,21 @@ Returns an array of Volume objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.listVmVolumes(id).then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listVmVolumes(id, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -2277,10 +2580,12 @@ apiInstance.listVmVolumes(id).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[Volume]**](Volume.md)
+[**VolumesCollection**](VolumesCollection.md)
 
 ### Authorization
 
@@ -2293,7 +2598,7 @@ Name | Type | Description  | Notes
 
 <a name="listVms"></a>
 # **listVms**
-> [Vm] listVms()
+> VmsCollection listVms(opts)
 
 List Vms
 
@@ -2301,16 +2606,20 @@ Returns an array of Vm objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-apiInstance.listVms().then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listVms(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -2319,11 +2628,15 @@ apiInstance.listVms().then((data) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[Vm]**](Vm.md)
+[**VmsCollection**](VmsCollection.md)
 
 ### Authorization
 
@@ -2336,7 +2649,7 @@ This endpoint does not need any parameter.
 
 <a name="listVolumeAttachments"></a>
 # **listVolumeAttachments**
-> [VolumeAttachment] listVolumeAttachments()
+> VolumeAttachmentsCollection listVolumeAttachments(opts)
 
 List VolumeAttachments
 
@@ -2344,16 +2657,20 @@ Returns an array of VolumeAttachment objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-apiInstance.listVolumeAttachments().then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listVolumeAttachments(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -2362,11 +2679,15 @@ apiInstance.listVolumeAttachments().then((data) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[VolumeAttachment]**](VolumeAttachment.md)
+[**VolumeAttachmentsCollection**](VolumeAttachmentsCollection.md)
 
 ### Authorization
 
@@ -2379,7 +2700,7 @@ This endpoint does not need any parameter.
 
 <a name="listVolumeTypes"></a>
 # **listVolumeTypes**
-> [VolumeType] listVolumeTypes()
+> VolumeTypesCollection listVolumeTypes(opts)
 
 List VolumeTypes
 
@@ -2387,16 +2708,20 @@ Returns an array of VolumeType objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-apiInstance.listVolumeTypes().then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listVolumeTypes(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -2405,11 +2730,15 @@ apiInstance.listVolumeTypes().then((data) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[VolumeType]**](VolumeType.md)
+[**VolumeTypesCollection**](VolumeTypesCollection.md)
 
 ### Authorization
 
@@ -2422,7 +2751,7 @@ This endpoint does not need any parameter.
 
 <a name="listVolumes"></a>
 # **listVolumes**
-> [Volume] listVolumes()
+> VolumesCollection listVolumes(opts)
 
 List Volumes
 
@@ -2430,16 +2759,20 @@ Returns an array of Volume objects
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-apiInstance.listVolumes().then((data) => {
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listVolumes(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -2448,11 +2781,15 @@ apiInstance.listVolumes().then((data) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[Volume]**](Volume.md)
+[**VolumesCollection**](VolumesCollection.md)
 
 ### Authorization
 
@@ -2465,7 +2802,7 @@ This endpoint does not need any parameter.
 
 <a name="orderServicePlan"></a>
 # **orderServicePlan**
-> InlineResponse200 orderServicePlan(idparameters)
+> InlineResponse200 orderServicePlan(id, orderParameters)
 
 Order an existing ServicePlan
 
@@ -2473,21 +2810,18 @@ Returns a Task id
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-let parameters = new TopologicalInventory.OrderParameters(); // OrderParameters | Order parameters defining the service and provider control
-
-apiInstance.orderServicePlan(idparameters).then((data) => {
+let orderParameters = new @ManageiqTopologicalInventory.OrderParameters(); // OrderParameters | Order parameters defining the service and provider control
+apiInstance.orderServicePlan(id, orderParameters).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -2500,7 +2834,7 @@ apiInstance.orderServicePlan(idparameters).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
- **parameters** | [**OrderParameters**](OrderParameters.md)| Order parameters defining the service and provider control | 
+ **orderParameters** | [**OrderParameters**](OrderParameters.md)| Order parameters defining the service and provider control | 
 
 ### Return type
 
@@ -2513,154 +2847,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
-
-<a name="replaceAuthentication"></a>
-# **replaceAuthentication**
-> replaceAuthentication(id)
-
-Replace an existing Authentication
-
-Replaces a Authentication object
-
-### Example
-```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
-
-// Configure HTTP basic authorization: UserSecurity
-let UserSecurity = defaultClient.authentications['UserSecurity'];
-UserSecurity.username = 'YOUR USERNAME';
-UserSecurity.password = 'YOUR PASSWORD';
-
-let apiInstance = new TopologicalInventory.DefaultApi();
-
-let id = "id_example"; // String | ID of the resource
-
-apiInstance.replaceAuthentication(id).then(() => {
-  console.log('API called successfully.');
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**| ID of the resource | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[UserSecurity](../README.md#UserSecurity)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="replaceEndpoint"></a>
-# **replaceEndpoint**
-> replaceEndpoint(id)
-
-Replace an existing Endpoint
-
-Replaces a Endpoint object
-
-### Example
-```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
-
-// Configure HTTP basic authorization: UserSecurity
-let UserSecurity = defaultClient.authentications['UserSecurity'];
-UserSecurity.username = 'YOUR USERNAME';
-UserSecurity.password = 'YOUR PASSWORD';
-
-let apiInstance = new TopologicalInventory.DefaultApi();
-
-let id = "id_example"; // String | ID of the resource
-
-apiInstance.replaceEndpoint(id).then(() => {
-  console.log('API called successfully.');
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**| ID of the resource | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[UserSecurity](../README.md#UserSecurity)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="replaceSource"></a>
-# **replaceSource**
-> replaceSource(id)
-
-Replace an existing Source
-
-Replaces a Source object
-
-### Example
-```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
-
-// Configure HTTP basic authorization: UserSecurity
-let UserSecurity = defaultClient.authentications['UserSecurity'];
-UserSecurity.username = 'YOUR USERNAME';
-UserSecurity.password = 'YOUR PASSWORD';
-
-let apiInstance = new TopologicalInventory.DefaultApi();
-
-let id = "id_example"; // String | ID of the resource
-
-apiInstance.replaceSource(id).then(() => {
-  console.log('API called successfully.');
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**| ID of the resource | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[UserSecurity](../README.md#UserSecurity)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: */*
 
 <a name="showAuthentication"></a>
 # **showAuthentication**
@@ -2672,18 +2859,16 @@ Returns a Authentication object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.showAuthentication(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -2721,18 +2906,16 @@ Returns a Container object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.showContainer(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -2770,18 +2953,16 @@ Returns a ContainerGroup object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.showContainerGroup(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -2819,18 +3000,16 @@ Returns a ContainerImage object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.showContainerImage(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -2868,18 +3047,16 @@ Returns a ContainerNode object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.showContainerNode(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -2917,18 +3094,16 @@ Returns a ContainerProject object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.showContainerProject(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -2966,18 +3141,16 @@ Returns a ContainerTemplate object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.showContainerTemplate(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -3015,18 +3188,16 @@ Returns a Endpoint object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.showEndpoint(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -3064,18 +3235,16 @@ Returns a Flavor object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.showFlavor(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -3113,18 +3282,16 @@ Returns a OrchestrationStack object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.showOrchestrationStack(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -3162,18 +3329,16 @@ Returns a ServiceInstance object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.showServiceInstance(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -3211,18 +3376,16 @@ Returns a ServiceOffering object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.showServiceOffering(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -3250,6 +3413,53 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="showServiceOfferingIcon"></a>
+# **showServiceOfferingIcon**
+> ServiceOfferingIcon showServiceOfferingIcon(id)
+
+Show an existing ServiceOfferingIcon
+
+Returns a ServiceOfferingIcon object
+
+### Example
+```javascript
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
+
+// Configure HTTP basic authorization: UserSecurity
+let UserSecurity = defaultClient.authentications['UserSecurity'];
+UserSecurity.username = 'YOUR USERNAME';
+UserSecurity.password = 'YOUR PASSWORD';
+
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let id = "id_example"; // String | ID of the resource
+apiInstance.showServiceOfferingIcon(id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of the resource | 
+
+### Return type
+
+[**ServiceOfferingIcon**](ServiceOfferingIcon.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="showServicePlan"></a>
 # **showServicePlan**
 > ServicePlan showServicePlan(id)
@@ -3260,18 +3470,16 @@ Returns a ServicePlan object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.showServicePlan(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -3309,18 +3517,16 @@ Returns a Source object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.showSource(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -3358,18 +3564,16 @@ Returns a SourceType object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.showSourceType(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -3397,6 +3601,53 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="showTag"></a>
+# **showTag**
+> Tag showTag(id)
+
+Show an existing Tag
+
+Returns a Tag object
+
+### Example
+```javascript
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
+
+// Configure HTTP basic authorization: UserSecurity
+let UserSecurity = defaultClient.authentications['UserSecurity'];
+UserSecurity.username = 'YOUR USERNAME';
+UserSecurity.password = 'YOUR PASSWORD';
+
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let id = "id_example"; // String | ID of the resource
+apiInstance.showTag(id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of the resource | 
+
+### Return type
+
+[**Tag**](Tag.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="showTask"></a>
 # **showTask**
 > Task showTask(id)
@@ -3407,18 +3658,16 @@ Returns a Task object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.showTask(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -3456,18 +3705,16 @@ Returns a Vm object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.showVm(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -3505,18 +3752,16 @@ Returns a Volume object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.showVolume(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -3554,18 +3799,16 @@ Returns a VolumeAttachment object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.showVolumeAttachment(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -3603,18 +3846,16 @@ Returns a VolumeType object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
 apiInstance.showVolumeType(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -3644,7 +3885,7 @@ Name | Type | Description  | Notes
 
 <a name="updateAuthentication"></a>
 # **updateAuthentication**
-> updateAuthentication(id)
+> updateAuthentication(id, authentication)
 
 Update an existing Authentication
 
@@ -3652,19 +3893,18 @@ Updates a Authentication object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.updateAuthentication(id).then(() => {
+let authentication = new @ManageiqTopologicalInventory.Authentication(); // Authentication | Authentication attributes to update
+apiInstance.updateAuthentication(id, authentication).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -3677,6 +3917,7 @@ apiInstance.updateAuthentication(id).then(() => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **authentication** | [**Authentication**](Authentication.md)| Authentication attributes to update | 
 
 ### Return type
 
@@ -3689,11 +3930,11 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 <a name="updateEndpoint"></a>
 # **updateEndpoint**
-> updateEndpoint(id)
+> updateEndpoint(id, endpoint)
 
 Update an existing Endpoint
 
@@ -3701,19 +3942,18 @@ Updates a Endpoint object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.updateEndpoint(id).then(() => {
+let endpoint = new @ManageiqTopologicalInventory.Endpoint(); // Endpoint | Endpoint attributes to update
+apiInstance.updateEndpoint(id, endpoint).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -3726,6 +3966,7 @@ apiInstance.updateEndpoint(id).then(() => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **endpoint** | [**Endpoint**](Endpoint.md)| Endpoint attributes to update | 
 
 ### Return type
 
@@ -3738,11 +3979,11 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 <a name="updateSource"></a>
 # **updateSource**
-> updateSource(id)
+> updateSource(id, source)
 
 Update an existing Source
 
@@ -3750,19 +3991,18 @@ Updates a Source object
 
 ### Example
 ```javascript
-import TopologicalInventory from 'topological_inventory';
-let defaultClient = TopologicalInventory.ApiClient.instance;
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
 
 // Configure HTTP basic authorization: UserSecurity
 let UserSecurity = defaultClient.authentications['UserSecurity'];
 UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
-let apiInstance = new TopologicalInventory.DefaultApi();
-
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
 let id = "id_example"; // String | ID of the resource
-
-apiInstance.updateSource(id).then(() => {
+let source = new @ManageiqTopologicalInventory.Source(); // Source | Source attributes to update
+apiInstance.updateSource(id, source).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -3775,6 +4015,7 @@ apiInstance.updateSource(id).then(() => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+ **source** | [**Source**](Source.md)| Source attributes to update | 
 
 ### Return type
 
@@ -3787,5 +4028,5 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 

@@ -1,4 +1,4 @@
-# TopologicalInventory.Source
+# @ManageiqTopologicalInventory.Source
 
 ## Properties
 Name | Type | Description | Notes

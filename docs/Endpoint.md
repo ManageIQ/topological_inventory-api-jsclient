@@ -1,4 +1,4 @@
-# TopologicalInventory.Endpoint
+# @ManageiqTopologicalInventory.Endpoint
 
 ## Properties
 Name | Type | Description | Notes

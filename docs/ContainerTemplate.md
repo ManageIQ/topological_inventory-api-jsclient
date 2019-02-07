@@ -1,4 +1,4 @@
-# TopologicalInventory.ContainerTemplate
+# @ManageiqTopologicalInventory.ContainerTemplate
 
 ## Properties
 Name | Type | Description | Notes
@@ -11,5 +11,7 @@ Name | Type | Description | Notes
 **sourceRef** | **String** |  | [optional] 
 **tenantId** | **String** |  | [optional] 
 **containerProjectId** | **String** |  | [optional] 
+**taggings** | [**[Tagging]**](Tagging.md) |  | [optional] 
+**archivedAt** | **Date** |  | [optional] 
 
 

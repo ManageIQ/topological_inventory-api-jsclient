@@ -1,4 +1,4 @@
-# TopologicalInventory.Task
+# @ManageiqTopologicalInventory.Task
 
 ## Properties
 Name | Type | Description | Notes
@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **name** | **String** |  | [optional] 
 **status** | **String** |  | [optional] 
 **state** | **String** |  | [optional] 
-**context** | **Object** |  | [optional] 
+**context** | [**Object**](.md) |  | [optional] 
 **completedAt** | **Date** |  | [optional] 
 **tenantId** | **String** |  | [optional] 
 

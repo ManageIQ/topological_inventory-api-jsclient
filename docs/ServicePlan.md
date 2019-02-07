@@ -1,4 +1,4 @@
-# TopologicalInventory.ServicePlan
+# @ManageiqTopologicalInventory.ServicePlan
 
 ## Properties
 Name | Type | Description | Notes
@@ -13,7 +13,8 @@ Name | Type | Description | Notes
 **sourceRef** | **String** |  | [optional] 
 **tenantId** | **String** |  | [optional] 
 **serviceOfferingId** | **String** |  | [optional] 
-**createJsonSchema** | **Object** |  | [optional] 
-**updateJsonSchema** | **Object** |  | [optional] 
+**createJsonSchema** | [**Object**](.md) |  | [optional] 
+**updateJsonSchema** | [**Object**](.md) |  | [optional] 
+**archivedAt** | **Date** |  | [optional] 
 
 
