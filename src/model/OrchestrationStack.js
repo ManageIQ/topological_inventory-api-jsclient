@@ -47,14 +47,23 @@ class OrchestrationStack {
         if (data) {
             obj = obj || new OrchestrationStack();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('archived_at')) {
+                obj['archived_at'] = ApiClient.convertToType(data['archived_at'], 'Date');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
             }
             if (data.hasOwnProperty('description')) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            }
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            }
+            if (data.hasOwnProperty('last_seen_at')) {
+                obj['last_seen_at'] = ApiClient.convertToType(data['last_seen_at'], 'Date');
+            }
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
             if (data.hasOwnProperty('source_created_at')) {
                 obj['source_created_at'] = ApiClient.convertToType(data['source_created_at'], 'Date');
@@ -68,11 +77,8 @@ class OrchestrationStack {
             if (data.hasOwnProperty('source_ref')) {
                 obj['source_ref'] = ApiClient.convertToType(data['source_ref'], 'String');
             }
-            if (data.hasOwnProperty('tenant_id')) {
-                obj['tenant_id'] = ApiClient.convertToType(data['tenant_id'], 'String');
-            }
-            if (data.hasOwnProperty('archived_at')) {
-                obj['archived_at'] = ApiClient.convertToType(data['archived_at'], 'Date');
+            if (data.hasOwnProperty('updated_at')) {
+                obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
             }
         }
         return obj;
@@ -82,20 +88,36 @@ class OrchestrationStack {
 }
 
 /**
- * @member {String} id
+ * @member {Date} archived_at
  */
-OrchestrationStack.prototype['id'] = undefined;
+OrchestrationStack.prototype['archived_at'] = undefined;
 
 /**
- * @member {String} name
+ * @member {Date} created_at
  */
-OrchestrationStack.prototype['name'] = undefined;
+OrchestrationStack.prototype['created_at'] = undefined;
 
 /**
  * Description of the OrchestrationStack
  * @member {String} description
  */
 OrchestrationStack.prototype['description'] = undefined;
+
+/**
+ * ID of the resource
+ * @member {String} id
+ */
+OrchestrationStack.prototype['id'] = undefined;
+
+/**
+ * @member {Date} last_seen_at
+ */
+OrchestrationStack.prototype['last_seen_at'] = undefined;
+
+/**
+ * @member {String} name
+ */
+OrchestrationStack.prototype['name'] = undefined;
 
 /**
  * @member {Date} source_created_at
@@ -108,6 +130,7 @@ OrchestrationStack.prototype['source_created_at'] = undefined;
 OrchestrationStack.prototype['source_deleted_at'] = undefined;
 
 /**
+ * ID of the resource
  * @member {String} source_id
  */
 OrchestrationStack.prototype['source_id'] = undefined;
@@ -118,14 +141,9 @@ OrchestrationStack.prototype['source_id'] = undefined;
 OrchestrationStack.prototype['source_ref'] = undefined;
 
 /**
- * @member {String} tenant_id
+ * @member {Date} updated_at
  */
-OrchestrationStack.prototype['tenant_id'] = undefined;
-
-/**
- * @member {Date} archived_at
- */
-OrchestrationStack.prototype['archived_at'] = undefined;
+OrchestrationStack.prototype['updated_at'] = undefined;
 
 
 

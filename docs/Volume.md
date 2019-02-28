@@ -3,17 +3,20 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**Object**](.md) |  | [optional] 
-**tenantId** | [**Object**](.md) |  | [optional] 
-**sourceId** | [**Object**](.md) |  | [optional] 
-**sourceRegionId** | **String** |  | [optional] 
-**volumeTypeId** | [**Object**](.md) |  | [optional] 
-**sourceRef** | **String** |  | [optional] 
+**archivedAt** | **Date** |  | [optional] 
+**createdAt** | **Date** |  | [optional] 
+**extra** | **String** |  | [optional] 
+**id** | **String** | ID of the resource | [optional] 
+**lastSeenAt** | **Date** |  | [optional] 
 **name** | **String** |  | [optional] 
-**state** | **String** |  | [optional] 
 **size** | **Number** | Size of the volume in bytes | [optional] 
 **sourceCreatedAt** | **Date** |  | [optional] 
 **sourceDeletedAt** | **Date** |  | [optional] 
-**archivedAt** | **Date** |  | [optional] 
+**sourceId** | **String** | ID of the resource | [optional] 
+**sourceRef** | **String** |  | [optional] 
+**sourceRegionId** | **String** | ID of the resource | [optional] 
+**state** | **String** |  | [optional] 
+**updatedAt** | **Date** |  | [optional] 
+**volumeTypeId** | **String** | ID of the resource | [optional] 
 
 

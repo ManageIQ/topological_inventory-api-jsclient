@@ -3,14 +3,18 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**Object**](.md) |  | [optional] 
-**tenantId** | [**Object**](.md) |  | [optional] 
-**sourceId** | [**Object**](.md) |  | [optional] 
+**archivedAt** | **Date** |  | [optional] 
+**createdAt** | **Date** |  | [optional] 
+**id** | **String** | ID of the resource | [optional] 
+**lastSeenAt** | **Date** |  | [optional] 
 **name** | **String** |  | [optional] 
-**tag** | **String** |  | [optional] 
+**resourceVersion** | **String** |  | [optional] 
 **sourceCreatedAt** | **Date** |  | [optional] 
 **sourceDeletedAt** | **Date** |  | [optional] 
+**sourceId** | **String** | ID of the resource | [optional] 
+**sourceRef** | **String** |  | [optional] 
+**tag** | **String** |  | [optional] 
 **taggings** | [**[Tagging]**](Tagging.md) |  | [optional] 
-**archivedAt** | **Date** |  | [optional] 
+**updatedAt** | **Date** |  | [optional] 
 
 

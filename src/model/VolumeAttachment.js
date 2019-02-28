@@ -47,23 +47,20 @@ class VolumeAttachment {
         if (data) {
             obj = obj || new VolumeAttachment();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], Object);
-            }
-            if (data.hasOwnProperty('tenant_id')) {
-                obj['tenant_id'] = ApiClient.convertToType(data['tenant_id'], Object);
-            }
-            if (data.hasOwnProperty('vm_id')) {
-                obj['vm_id'] = ApiClient.convertToType(data['vm_id'], Object);
-            }
-            if (data.hasOwnProperty('volume_id')) {
-                obj['volume_id'] = ApiClient.convertToType(data['volume_id'], Object);
-            }
             if (data.hasOwnProperty('device')) {
                 obj['device'] = ApiClient.convertToType(data['device'], 'String');
             }
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            }
             if (data.hasOwnProperty('state')) {
                 obj['state'] = ApiClient.convertToType(data['state'], 'String');
+            }
+            if (data.hasOwnProperty('vm_id')) {
+                obj['vm_id'] = ApiClient.convertToType(data['vm_id'], 'String');
+            }
+            if (data.hasOwnProperty('volume_id')) {
+                obj['volume_id'] = ApiClient.convertToType(data['volume_id'], 'String');
             }
         }
         return obj;
@@ -73,34 +70,32 @@ class VolumeAttachment {
 }
 
 /**
- * @member {Object} id
- */
-VolumeAttachment.prototype['id'] = undefined;
-
-/**
- * @member {Object} tenant_id
- */
-VolumeAttachment.prototype['tenant_id'] = undefined;
-
-/**
- * @member {Object} vm_id
- */
-VolumeAttachment.prototype['vm_id'] = undefined;
-
-/**
- * @member {Object} volume_id
- */
-VolumeAttachment.prototype['volume_id'] = undefined;
-
-/**
  * @member {String} device
  */
 VolumeAttachment.prototype['device'] = undefined;
 
 /**
+ * ID of the resource
+ * @member {String} id
+ */
+VolumeAttachment.prototype['id'] = undefined;
+
+/**
  * @member {String} state
  */
 VolumeAttachment.prototype['state'] = undefined;
+
+/**
+ * ID of the resource
+ * @member {String} vm_id
+ */
+VolumeAttachment.prototype['vm_id'] = undefined;
+
+/**
+ * ID of the resource
+ * @member {String} volume_id
+ */
+VolumeAttachment.prototype['volume_id'] = undefined;
 
 
 

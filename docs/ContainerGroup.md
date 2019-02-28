@@ -3,17 +3,20 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
-**name** | **String** |  | [optional] 
+**archivedAt** | **Date** |  | [optional] 
+**containerNodeId** | **String** | ID of the resource | [optional] 
+**containerProjectId** | **String** | ID of the resource | [optional] 
+**createdAt** | **Date** |  | [optional] 
+**id** | **String** | ID of the resource | [optional] 
 **ipaddress** | **String** |  | [optional] 
+**lastSeenAt** | **Date** |  | [optional] 
+**name** | **String** |  | [optional] 
+**resourceVersion** | **String** |  | [optional] 
 **sourceCreatedAt** | **Date** |  | [optional] 
 **sourceDeletedAt** | **Date** |  | [optional] 
-**containerNodeId** | **String** |  | [optional] 
-**containerProjectId** | **String** |  | [optional] 
-**sourceId** | **String** |  | [optional] 
+**sourceId** | **String** | ID of the resource | [optional] 
 **sourceRef** | **String** |  | [optional] 
-**tenantId** | **String** |  | [optional] 
 **taggings** | [**[Tagging]**](Tagging.md) |  | [optional] 
-**archivedAt** | **Date** |  | [optional] 
+**updatedAt** | **Date** |  | [optional] 
 
 

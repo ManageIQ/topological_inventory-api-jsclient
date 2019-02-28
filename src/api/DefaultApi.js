@@ -15,6 +15,7 @@
 import ApiClient from "../ApiClient";
 import Authentication from '../model/Authentication';
 import AuthenticationsCollection from '../model/AuthenticationsCollection';
+import AvailabilitiesCollection from '../model/AvailabilitiesCollection';
 import Container from '../model/Container';
 import ContainerGroup from '../model/ContainerGroup';
 import ContainerGroupsCollection from '../model/ContainerGroupsCollection';
@@ -39,6 +40,7 @@ import ServiceInstance from '../model/ServiceInstance';
 import ServiceInstancesCollection from '../model/ServiceInstancesCollection';
 import ServiceOffering from '../model/ServiceOffering';
 import ServiceOfferingIcon from '../model/ServiceOfferingIcon';
+import ServiceOfferingIconsCollection from '../model/ServiceOfferingIconsCollection';
 import ServiceOfferingsCollection from '../model/ServiceOfferingsCollection';
 import ServicePlan from '../model/ServicePlan';
 import ServicePlansCollection from '../model/ServicePlansCollection';
@@ -426,6 +428,47 @@ export default class DefaultApi {
      */
     deleteSource(id) {
       return this.deleteSourceWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Return this API document in JSON format
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     */
+    getDocumentationWithHttpInfo() {
+      let postBody = null;
+
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['UserSecurity'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/openapi.json', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Return this API document in JSON format
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    getDocumentation() {
+      return this.getDocumentationWithHttpInfo()
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1037,6 +1080,66 @@ export default class DefaultApi {
 
 
     /**
+     * List Authentications for Endpoint
+     * Returns an array of Authentication objects
+     * @param {String} id ID of the resource
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit The numbers of items to return per page. (default to 100)
+     * @param {Number} opts.offset The number of items to skip before starting to collect the result set. (default to 0)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AuthenticationsCollection} and HTTP response
+     */
+    listEndpointAuthenticationsWithHttpInfo(id, opts) {
+      opts = opts || {};
+      let postBody = null;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling listEndpointAuthentications");
+      }
+
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+        'limit': opts['limit'],
+        'offset': opts['offset']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['UserSecurity'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = AuthenticationsCollection;
+
+      return this.apiClient.callApi(
+        '/endpoints/{id}/authentications', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * List Authentications for Endpoint
+     * Returns an array of Authentication objects
+     * @param {String} id ID of the resource
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit The numbers of items to return per page. (default to 100)
+     * @param {Number} opts.offset The number of items to skip before starting to collect the result set. (default to 0)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AuthenticationsCollection}
+     */
+    listEndpointAuthentications(id, opts) {
+      return this.listEndpointAuthenticationsWithHttpInfo(id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * List Endpoints
      * Returns an array of Endpoint objects
      * @param {Object} opts Optional parameters
@@ -1247,15 +1350,21 @@ export default class DefaultApi {
     /**
      * List ServiceOfferingIcons
      * Returns an array of ServiceOfferingIcon objects
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ServiceOfferingIcon>} and HTTP response
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit The numbers of items to return per page. (default to 100)
+     * @param {Number} opts.offset The number of items to skip before starting to collect the result set. (default to 0)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ServiceOfferingIconsCollection} and HTTP response
      */
-    listServiceOfferingIconsWithHttpInfo() {
+    listServiceOfferingIconsWithHttpInfo(opts) {
+      opts = opts || {};
       let postBody = null;
 
 
       let pathParams = {
       };
       let queryParams = {
+        'limit': opts['limit'],
+        'offset': opts['offset']
       };
       let headerParams = {
       };
@@ -1265,7 +1374,7 @@ export default class DefaultApi {
       let authNames = ['UserSecurity'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [ServiceOfferingIcon];
+      let returnType = ServiceOfferingIconsCollection;
 
       return this.apiClient.callApi(
         '/service_offering_icons', 'GET',
@@ -1277,10 +1386,13 @@ export default class DefaultApi {
     /**
      * List ServiceOfferingIcons
      * Returns an array of ServiceOfferingIcon objects
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ServiceOfferingIcon>}
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit The numbers of items to return per page. (default to 100)
+     * @param {Number} opts.offset The number of items to skip before starting to collect the result set. (default to 0)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ServiceOfferingIconsCollection}
      */
-    listServiceOfferingIcons() {
-      return this.listServiceOfferingIconsWithHttpInfo()
+    listServiceOfferingIcons(opts) {
+      return this.listServiceOfferingIconsWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1565,6 +1677,66 @@ export default class DefaultApi {
      */
     listServicePlans(opts) {
       return this.listServicePlansWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List Availabilities for Source
+     * Returns an array of Availability objects
+     * @param {String} id ID of the resource
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit The numbers of items to return per page. (default to 100)
+     * @param {Number} opts.offset The number of items to skip before starting to collect the result set. (default to 0)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AvailabilitiesCollection} and HTTP response
+     */
+    listSourceAvailabilitiesWithHttpInfo(id, opts) {
+      opts = opts || {};
+      let postBody = null;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling listSourceAvailabilities");
+      }
+
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+        'limit': opts['limit'],
+        'offset': opts['offset']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['UserSecurity'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = AvailabilitiesCollection;
+
+      return this.apiClient.callApi(
+        '/sources/{id}/availabilities', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * List Availabilities for Source
+     * Returns an array of Availability objects
+     * @param {String} id ID of the resource
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit The numbers of items to return per page. (default to 100)
+     * @param {Number} opts.offset The number of items to skip before starting to collect the result set. (default to 0)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AvailabilitiesCollection}
+     */
+    listSourceAvailabilities(id, opts) {
+      return this.listSourceAvailabilitiesWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -2225,6 +2397,66 @@ export default class DefaultApi {
      */
     listSourceServicePlans(id, opts) {
       return this.listSourceServicePlansWithHttpInfo(id, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List Availabilities for SourceType
+     * Returns an array of Availability objects
+     * @param {String} id ID of the resource
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit The numbers of items to return per page. (default to 100)
+     * @param {Number} opts.offset The number of items to skip before starting to collect the result set. (default to 0)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AvailabilitiesCollection} and HTTP response
+     */
+    listSourceTypeAvailabilitiesWithHttpInfo(id, opts) {
+      opts = opts || {};
+      let postBody = null;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling listSourceTypeAvailabilities");
+      }
+
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+        'limit': opts['limit'],
+        'offset': opts['offset']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['UserSecurity'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = AvailabilitiesCollection;
+
+      return this.apiClient.callApi(
+        '/source_types/{id}/availabilities', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * List Availabilities for SourceType
+     * Returns an array of Availability objects
+     * @param {String} id ID of the resource
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit The numbers of items to return per page. (default to 100)
+     * @param {Number} opts.offset The number of items to skip before starting to collect the result set. (default to 0)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AvailabilitiesCollection}
+     */
+    listSourceTypeAvailabilities(id, opts) {
+      return this.listSourceTypeAvailabilitiesWithHttpInfo(id, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -4355,6 +4587,64 @@ export default class DefaultApi {
      */
     updateSource(id, source) {
       return this.updateSourceWithHttpInfo(id, source)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Update an existing Task
+     * Updates a Task object
+     * @param {String} id ID of the resource
+     * @param {module:model/Task} task Task attributes to update
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     */
+    updateTaskWithHttpInfo(id, task) {
+      let postBody = task;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling updateTask");
+      }
+
+      // verify the required parameter 'task' is set
+      if (task === undefined || task === null) {
+        throw new Error("Missing the required parameter 'task' when calling updateTask");
+      }
+
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['UserSecurity'];
+      let contentTypes = ['application/json'];
+      let accepts = [];
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/tasks/{id}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Update an existing Task
+     * Updates a Task object
+     * @param {String} id ID of the resource
+     * @param {module:model/Task} task Task attributes to update
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    updateTask(id, task) {
+      return this.updateTaskWithHttpInfo(id, task)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

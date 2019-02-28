@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tagId** | **String** |  | [optional] 
+**tagId** | **String** | ID of the resource | [optional] 
 **name** | **String** |  | [optional] 
 **value** | **String** |  | [optional] 
 

@@ -47,20 +47,29 @@ class Source {
         if (data) {
             obj = obj || new Source();
 
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+            }
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
-            }
-            if (data.hasOwnProperty('source_type_id')) {
-                obj['source_type_id'] = ApiClient.convertToType(data['source_type_id'], 'String');
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('uid')) {
-                obj['uid'] = ApiClient.convertToType(data['uid'], 'String');
+            if (data.hasOwnProperty('source_type_id')) {
+                obj['source_type_id'] = ApiClient.convertToType(data['source_type_id'], 'String');
             }
             if (data.hasOwnProperty('tenant_id')) {
                 obj['tenant_id'] = ApiClient.convertToType(data['tenant_id'], 'String');
+            }
+            if (data.hasOwnProperty('uid')) {
+                obj['uid'] = ApiClient.convertToType(data['uid'], 'String');
+            }
+            if (data.hasOwnProperty('updated_at')) {
+                obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
+            }
+            if (data.hasOwnProperty('version')) {
+                obj['version'] = ApiClient.convertToType(data['version'], 'String');
             }
         }
         return obj;
@@ -70,14 +79,15 @@ class Source {
 }
 
 /**
+ * @member {Date} created_at
+ */
+Source.prototype['created_at'] = undefined;
+
+/**
+ * ID of the resource
  * @member {String} id
  */
 Source.prototype['id'] = undefined;
-
-/**
- * @member {String} source_type_id
- */
-Source.prototype['source_type_id'] = undefined;
 
 /**
  * @member {String} name
@@ -85,14 +95,31 @@ Source.prototype['source_type_id'] = undefined;
 Source.prototype['name'] = undefined;
 
 /**
+ * ID of the resource
+ * @member {String} source_type_id
+ */
+Source.prototype['source_type_id'] = undefined;
+
+/**
+ * ID of the resource
+ * @member {String} tenant_id
+ */
+Source.prototype['tenant_id'] = undefined;
+
+/**
  * @member {String} uid
  */
 Source.prototype['uid'] = undefined;
 
 /**
- * @member {String} tenant_id
+ * @member {Date} updated_at
  */
-Source.prototype['tenant_id'] = undefined;
+Source.prototype['updated_at'] = undefined;
+
+/**
+ * @member {String} version
+ */
+Source.prototype['version'] = undefined;
 
 
 

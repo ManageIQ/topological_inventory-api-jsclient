@@ -3,10 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
-**sourceTypeId** | **String** |  | [optional] 
+**createdAt** | **Date** |  | [optional] 
+**id** | **String** | ID of the resource | [optional] 
 **name** | **String** |  | [optional] 
+**sourceTypeId** | **String** | ID of the resource | [optional] 
+**tenantId** | **String** | ID of the resource | [optional] 
 **uid** | **String** |  | [optional] 
-**tenantId** | **String** |  | [optional] 
+**updatedAt** | **Date** |  | [optional] 
+**version** | **String** |  | [optional] 
 
 

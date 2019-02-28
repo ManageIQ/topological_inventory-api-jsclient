@@ -47,23 +47,23 @@ class Authentication {
         if (data) {
             obj = obj || new Authentication();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
-            }
-            if (data.hasOwnProperty('tenant_id')) {
-                obj['tenant_id'] = ApiClient.convertToType(data['tenant_id'], 'String');
-            }
             if (data.hasOwnProperty('authtype')) {
                 obj['authtype'] = ApiClient.convertToType(data['authtype'], 'String');
+            }
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('resource_type')) {
-                obj['resource_type'] = ApiClient.convertToType(data['resource_type'], 'String');
+            if (data.hasOwnProperty('password')) {
+                obj['password'] = ApiClient.convertToType(data['password'], 'String');
             }
             if (data.hasOwnProperty('resource_id')) {
                 obj['resource_id'] = ApiClient.convertToType(data['resource_id'], 'String');
+            }
+            if (data.hasOwnProperty('resource_type')) {
+                obj['resource_type'] = ApiClient.convertToType(data['resource_type'], 'String');
             }
             if (data.hasOwnProperty('status')) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
@@ -71,11 +71,11 @@ class Authentication {
             if (data.hasOwnProperty('status_details')) {
                 obj['status_details'] = ApiClient.convertToType(data['status_details'], 'String');
             }
+            if (data.hasOwnProperty('tenant_id')) {
+                obj['tenant_id'] = ApiClient.convertToType(data['tenant_id'], 'String');
+            }
             if (data.hasOwnProperty('username')) {
                 obj['username'] = ApiClient.convertToType(data['username'], 'String');
-            }
-            if (data.hasOwnProperty('password')) {
-                obj['password'] = ApiClient.convertToType(data['password'], 'String');
             }
         }
         return obj;
@@ -85,19 +85,15 @@ class Authentication {
 }
 
 /**
- * @member {String} id
- */
-Authentication.prototype['id'] = undefined;
-
-/**
- * @member {String} tenant_id
- */
-Authentication.prototype['tenant_id'] = undefined;
-
-/**
  * @member {String} authtype
  */
 Authentication.prototype['authtype'] = undefined;
+
+/**
+ * ID of the resource
+ * @member {String} id
+ */
+Authentication.prototype['id'] = undefined;
 
 /**
  * @member {String} name
@@ -105,14 +101,20 @@ Authentication.prototype['authtype'] = undefined;
 Authentication.prototype['name'] = undefined;
 
 /**
- * @member {String} resource_type
+ * @member {String} password
  */
-Authentication.prototype['resource_type'] = undefined;
+Authentication.prototype['password'] = undefined;
 
 /**
+ * ID of the resource
  * @member {String} resource_id
  */
 Authentication.prototype['resource_id'] = undefined;
+
+/**
+ * @member {String} resource_type
+ */
+Authentication.prototype['resource_type'] = undefined;
 
 /**
  * @member {String} status
@@ -125,14 +127,15 @@ Authentication.prototype['status'] = undefined;
 Authentication.prototype['status_details'] = undefined;
 
 /**
+ * ID of the resource
+ * @member {String} tenant_id
+ */
+Authentication.prototype['tenant_id'] = undefined;
+
+/**
  * @member {String} username
  */
 Authentication.prototype['username'] = undefined;
-
-/**
- * @member {String} password
- */
-Authentication.prototype['password'] = undefined;
 
 
 

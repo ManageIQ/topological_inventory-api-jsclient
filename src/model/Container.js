@@ -47,14 +47,14 @@ class Container {
         if (data) {
             obj = obj || new Container();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], Object);
+            if (data.hasOwnProperty('archived_at')) {
+                obj['archived_at'] = ApiClient.convertToType(data['archived_at'], 'Date');
             }
-            if (data.hasOwnProperty('tenant_id')) {
-                obj['tenant_id'] = ApiClient.convertToType(data['tenant_id'], Object);
+            if (data.hasOwnProperty('container_group_id')) {
+                obj['container_group_id'] = ApiClient.convertToType(data['container_group_id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('container_image_id')) {
+                obj['container_image_id'] = ApiClient.convertToType(data['container_image_id'], 'String');
             }
             if (data.hasOwnProperty('cpu_limit')) {
                 obj['cpu_limit'] = ApiClient.convertToType(data['cpu_limit'], 'Number');
@@ -62,20 +62,23 @@ class Container {
             if (data.hasOwnProperty('cpu_request')) {
                 obj['cpu_request'] = ApiClient.convertToType(data['cpu_request'], 'Number');
             }
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+            }
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            }
             if (data.hasOwnProperty('memory_limit')) {
                 obj['memory_limit'] = ApiClient.convertToType(data['memory_limit'], 'Number');
             }
             if (data.hasOwnProperty('memory_request')) {
                 obj['memory_request'] = ApiClient.convertToType(data['memory_request'], 'Number');
             }
-            if (data.hasOwnProperty('container_group_id')) {
-                obj['container_group_id'] = ApiClient.convertToType(data['container_group_id'], Object);
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('container_image_id')) {
-                obj['container_image_id'] = ApiClient.convertToType(data['container_image_id'], Object);
-            }
-            if (data.hasOwnProperty('archived_at')) {
-                obj['archived_at'] = ApiClient.convertToType(data['archived_at'], 'Date');
+            if (data.hasOwnProperty('updated_at')) {
+                obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
             }
         }
         return obj;
@@ -85,19 +88,21 @@ class Container {
 }
 
 /**
- * @member {Object} id
+ * @member {Date} archived_at
  */
-Container.prototype['id'] = undefined;
+Container.prototype['archived_at'] = undefined;
 
 /**
- * @member {Object} tenant_id
+ * ID of the resource
+ * @member {String} container_group_id
  */
-Container.prototype['tenant_id'] = undefined;
+Container.prototype['container_group_id'] = undefined;
 
 /**
- * @member {String} name
+ * ID of the resource
+ * @member {String} container_image_id
  */
-Container.prototype['name'] = undefined;
+Container.prototype['container_image_id'] = undefined;
 
 /**
  * @member {Number} cpu_limit
@@ -110,6 +115,17 @@ Container.prototype['cpu_limit'] = undefined;
 Container.prototype['cpu_request'] = undefined;
 
 /**
+ * @member {Date} created_at
+ */
+Container.prototype['created_at'] = undefined;
+
+/**
+ * ID of the resource
+ * @member {String} id
+ */
+Container.prototype['id'] = undefined;
+
+/**
  * @member {Number} memory_limit
  */
 Container.prototype['memory_limit'] = undefined;
@@ -120,19 +136,14 @@ Container.prototype['memory_limit'] = undefined;
 Container.prototype['memory_request'] = undefined;
 
 /**
- * @member {Object} container_group_id
+ * @member {String} name
  */
-Container.prototype['container_group_id'] = undefined;
+Container.prototype['name'] = undefined;
 
 /**
- * @member {Object} container_image_id
+ * @member {Date} updated_at
  */
-Container.prototype['container_image_id'] = undefined;
-
-/**
- * @member {Date} archived_at
- */
-Container.prototype['archived_at'] = undefined;
+Container.prototype['updated_at'] = undefined;
 
 
 

@@ -3,15 +3,20 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
-**name** | **String** |  | [optional] 
+**archivedAt** | **Date** |  | [optional] 
+**createdAt** | **Date** |  | [optional] 
 **extra** | **String** | Extra information about this object in JSON format | [optional] 
+**id** | **String** | ID of the resource | [optional] 
+**lastSeenAt** | **Date** |  | [optional] 
+**name** | **String** |  | [optional] 
+**serviceOfferingId** | **String** | ID of the resource | [optional] 
+**servicePlanId** | **String** | ID of the resource | [optional] 
 **sourceCreatedAt** | **Date** |  | [optional] 
 **sourceDeletedAt** | **Date** |  | [optional] 
-**serviceOfferingId** | **String** |  | [optional] 
-**sourceId** | **String** |  | [optional] 
+**sourceId** | **String** | ID of the resource | [optional] 
 **sourceRef** | **String** |  | [optional] 
-**tenantId** | **String** |  | [optional] 
-**archivedAt** | **Date** |  | [optional] 
+**sourceRegionId** | **String** | ID of the resource | [optional] 
+**subscriptionId** | **String** | ID of the resource | [optional] 
+**updatedAt** | **Date** |  | [optional] 
 
 

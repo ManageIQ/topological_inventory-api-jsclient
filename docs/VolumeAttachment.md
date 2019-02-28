@@ -3,11 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**Object**](.md) |  | [optional] 
-**tenantId** | [**Object**](.md) |  | [optional] 
-**vmId** | [**Object**](.md) |  | [optional] 
-**volumeId** | [**Object**](.md) |  | [optional] 
 **device** | **String** |  | [optional] 
+**id** | **String** | ID of the resource | [optional] 
 **state** | **String** |  | [optional] 
+**vmId** | **String** | ID of the resource | [optional] 
+**volumeId** | **String** | ID of the resource | [optional] 
 
 

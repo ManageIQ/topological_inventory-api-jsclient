@@ -47,14 +47,20 @@ class Endpoint {
         if (data) {
             obj = obj || new Endpoint();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('certificate_authority')) {
+                obj['certificate_authority'] = ApiClient.convertToType(data['certificate_authority'], 'String');
+            }
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
             }
             if (data.hasOwnProperty('default')) {
                 obj['default'] = ApiClient.convertToType(data['default'], 'Boolean');
             }
             if (data.hasOwnProperty('host')) {
                 obj['host'] = ApiClient.convertToType(data['host'], 'String');
+            }
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
             if (data.hasOwnProperty('path')) {
                 obj['path'] = ApiClient.convertToType(data['path'], 'String');
@@ -74,6 +80,12 @@ class Endpoint {
             if (data.hasOwnProperty('tenant_id')) {
                 obj['tenant_id'] = ApiClient.convertToType(data['tenant_id'], 'String');
             }
+            if (data.hasOwnProperty('updated_at')) {
+                obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
+            }
+            if (data.hasOwnProperty('verify_ssl')) {
+                obj['verify_ssl'] = ApiClient.convertToType(data['verify_ssl'], 'Boolean');
+            }
         }
         return obj;
     }
@@ -82,9 +94,15 @@ class Endpoint {
 }
 
 /**
- * @member {String} id
+ * Optional X.509 Certificate Authority
+ * @member {String} certificate_authority
  */
-Endpoint.prototype['id'] = undefined;
+Endpoint.prototype['certificate_authority'] = undefined;
+
+/**
+ * @member {Date} created_at
+ */
+Endpoint.prototype['created_at'] = undefined;
 
 /**
  * @member {Boolean} default
@@ -96,6 +114,12 @@ Endpoint.prototype['default'] = undefined;
  * @member {String} host
  */
 Endpoint.prototype['host'] = undefined;
+
+/**
+ * ID of the resource
+ * @member {String} id
+ */
+Endpoint.prototype['id'] = undefined;
 
 /**
  * URI path component
@@ -121,14 +145,27 @@ Endpoint.prototype['role'] = undefined;
 Endpoint.prototype['scheme'] = undefined;
 
 /**
+ * ID of the resource
  * @member {String} source_id
  */
 Endpoint.prototype['source_id'] = undefined;
 
 /**
+ * ID of the resource
  * @member {String} tenant_id
  */
 Endpoint.prototype['tenant_id'] = undefined;
+
+/**
+ * @member {Date} updated_at
+ */
+Endpoint.prototype['updated_at'] = undefined;
+
+/**
+ * Should SSL be verified
+ * @member {Boolean} verify_ssl
+ */
+Endpoint.prototype['verify_ssl'] = undefined;
 
 
 
