@@ -104,7 +104,10 @@ OrchestrationStack.prototype['created_at'] = undefined;
 OrchestrationStack.prototype['description'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} id
  */
 OrchestrationStack.prototype['id'] = undefined;

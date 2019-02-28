@@ -119,7 +119,10 @@ ContainerNode.prototype['cpus'] = undefined;
 ContainerNode.prototype['created_at'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} id
  */
 ContainerNode.prototype['id'] = undefined;
@@ -130,7 +133,10 @@ ContainerNode.prototype['id'] = undefined;
 ContainerNode.prototype['last_seen_at'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} lives_on_id
  */
 ContainerNode.prototype['lives_on_id'] = undefined;

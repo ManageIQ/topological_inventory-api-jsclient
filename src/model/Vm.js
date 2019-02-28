@@ -143,7 +143,10 @@ Vm.prototype['description'] = undefined;
 Vm.prototype['extra'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} flavor_id
  */
 Vm.prototype['flavor_id'] = undefined;
@@ -154,7 +157,10 @@ Vm.prototype['flavor_id'] = undefined;
 Vm.prototype['hostname'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} id
  */
 Vm.prototype['id'] = undefined;
@@ -176,7 +182,10 @@ Vm.prototype['memory'] = undefined;
 Vm.prototype['name'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} orchestration_stack_id
  */
 Vm.prototype['orchestration_stack_id'] = undefined;
@@ -197,7 +206,10 @@ Vm.prototype['source_created_at'] = undefined;
 Vm.prototype['source_deleted_at'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} source_id
  */
 Vm.prototype['source_id'] = undefined;

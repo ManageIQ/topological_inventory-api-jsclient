@@ -100,7 +100,10 @@ Availability.prototype['availability'] = undefined;
 Availability.prototype['created_at'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} id
  */
 Availability.prototype['id'] = undefined;
@@ -121,7 +124,10 @@ Availability.prototype['last_checked_at'] = undefined;
 Availability.prototype['last_valid_at'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} resource_id
  */
 Availability.prototype['resource_id'] = undefined;

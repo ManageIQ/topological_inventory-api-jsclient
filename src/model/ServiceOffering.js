@@ -155,7 +155,10 @@ ServiceOffering.prototype['documentation_url'] = undefined;
 ServiceOffering.prototype['extra'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} id
  */
 ServiceOffering.prototype['id'] = undefined;
@@ -176,7 +179,10 @@ ServiceOffering.prototype['long_description'] = undefined;
 ServiceOffering.prototype['name'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} service_offering_icon_id
  */
 ServiceOffering.prototype['service_offering_icon_id'] = undefined;
@@ -204,13 +210,19 @@ ServiceOffering.prototype['source_id'] = undefined;
 ServiceOffering.prototype['source_ref'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} source_region_id
  */
 ServiceOffering.prototype['source_region_id'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} subscription_id
  */
 ServiceOffering.prototype['subscription_id'] = undefined;

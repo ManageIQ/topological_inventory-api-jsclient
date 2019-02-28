@@ -100,7 +100,10 @@ class ContainerTemplate {
 ContainerTemplate.prototype['archived_at'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} container_project_id
  */
 ContainerTemplate.prototype['container_project_id'] = undefined;
@@ -111,7 +114,10 @@ ContainerTemplate.prototype['container_project_id'] = undefined;
 ContainerTemplate.prototype['created_at'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} id
  */
 ContainerTemplate.prototype['id'] = undefined;

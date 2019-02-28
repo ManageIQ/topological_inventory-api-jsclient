@@ -110,7 +110,10 @@ ContainerProject.prototype['created_at'] = undefined;
 ContainerProject.prototype['display_name'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} id
  */
 ContainerProject.prototype['id'] = undefined;
@@ -129,6 +132,19 @@ ContainerProject.prototype['name'] = undefined;
  * @member {String} resource_version
  */
 ContainerProject.prototype['resource_version'] = undefined;
+<<<<<<< HEAD
+=======
+
+/**
+ * @member {Date} source_created_at
+ */
+ContainerProject.prototype['source_created_at'] = undefined;
+
+/**
+ * @member {Date} source_deleted_at
+ */
+ContainerProject.prototype['source_deleted_at'] = undefined;
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
 
 /**
  * @member {Date} source_created_at

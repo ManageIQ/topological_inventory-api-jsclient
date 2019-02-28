@@ -115,7 +115,10 @@ Volume.prototype['created_at'] = undefined;
 Volume.prototype['extra'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} id
  */
 Volume.prototype['id'] = undefined;
@@ -147,7 +150,10 @@ Volume.prototype['source_created_at'] = undefined;
 Volume.prototype['source_deleted_at'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} source_id
  */
 Volume.prototype['source_id'] = undefined;
@@ -158,7 +164,10 @@ Volume.prototype['source_id'] = undefined;
 Volume.prototype['source_ref'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} source_region_id
  */
 Volume.prototype['source_region_id'] = undefined;
@@ -174,7 +183,10 @@ Volume.prototype['state'] = undefined;
 Volume.prototype['updated_at'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} volume_type_id
  */
 Volume.prototype['volume_type_id'] = undefined;

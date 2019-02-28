@@ -94,7 +94,10 @@ Task.prototype['context'] = undefined;
 Task.prototype['created_at'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} id
  */
 Task.prototype['id'] = undefined;

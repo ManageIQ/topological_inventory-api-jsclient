@@ -106,13 +106,19 @@ class ContainerGroup {
 ContainerGroup.prototype['archived_at'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} container_node_id
  */
 ContainerGroup.prototype['container_node_id'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} container_project_id
  */
 ContainerGroup.prototype['container_project_id'] = undefined;
@@ -123,7 +129,10 @@ ContainerGroup.prototype['container_project_id'] = undefined;
 ContainerGroup.prototype['created_at'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} id
  */
 ContainerGroup.prototype['id'] = undefined;
@@ -152,6 +161,14 @@ ContainerGroup.prototype['resource_version'] = undefined;
  * @member {Date} source_created_at
  */
 ContainerGroup.prototype['source_created_at'] = undefined;
+<<<<<<< HEAD
+=======
+
+/**
+ * @member {Date} source_deleted_at
+ */
+ContainerGroup.prototype['source_deleted_at'] = undefined;
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
 
 /**
  * @member {Date} source_deleted_at

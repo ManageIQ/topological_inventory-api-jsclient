@@ -105,7 +105,10 @@ ContainerImage.prototype['archived_at'] = undefined;
 ContainerImage.prototype['created_at'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} id
  */
 ContainerImage.prototype['id'] = undefined;
@@ -136,7 +139,10 @@ ContainerImage.prototype['source_created_at'] = undefined;
 ContainerImage.prototype['source_deleted_at'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} source_id
  */
 ContainerImage.prototype['source_id'] = undefined;

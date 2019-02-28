@@ -116,7 +116,10 @@ Endpoint.prototype['default'] = undefined;
 Endpoint.prototype['host'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} id
  */
 Endpoint.prototype['id'] = undefined;

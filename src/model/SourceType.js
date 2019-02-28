@@ -81,7 +81,10 @@ class SourceType {
 SourceType.prototype['created_at'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} id
  */
 SourceType.prototype['id'] = undefined;

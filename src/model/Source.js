@@ -84,7 +84,10 @@ class Source {
 Source.prototype['created_at'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} id
  */
 Source.prototype['id'] = undefined;
@@ -95,13 +98,19 @@ Source.prototype['id'] = undefined;
 Source.prototype['name'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} source_type_id
  */
 Source.prototype['source_type_id'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} tenant_id
  */
 Source.prototype['tenant_id'] = undefined;

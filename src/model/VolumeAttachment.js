@@ -75,7 +75,10 @@ class VolumeAttachment {
 VolumeAttachment.prototype['device'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} id
  */
 VolumeAttachment.prototype['id'] = undefined;
@@ -86,13 +89,19 @@ VolumeAttachment.prototype['id'] = undefined;
 VolumeAttachment.prototype['state'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} vm_id
  */
 VolumeAttachment.prototype['vm_id'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} volume_id
  */
 VolumeAttachment.prototype['volume_id'] = undefined;

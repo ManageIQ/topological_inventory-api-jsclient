@@ -135,7 +135,10 @@ ServicePlan.prototype['description'] = undefined;
 ServicePlan.prototype['extra'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} id
  */
 ServicePlan.prototype['id'] = undefined;
@@ -156,7 +159,10 @@ ServicePlan.prototype['name'] = undefined;
 ServicePlan.prototype['resource_version'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} service_offering_id
  */
 ServicePlan.prototype['service_offering_id'] = undefined;
@@ -183,13 +189,19 @@ ServicePlan.prototype['source_id'] = undefined;
 ServicePlan.prototype['source_ref'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} source_region_id
  */
 ServicePlan.prototype['source_region_id'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} subscription_id
  */
 ServicePlan.prototype['subscription_id'] = undefined;

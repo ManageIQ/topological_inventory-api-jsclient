@@ -93,13 +93,19 @@ class Container {
 Container.prototype['archived_at'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} container_group_id
  */
 Container.prototype['container_group_id'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} container_image_id
  */
 Container.prototype['container_image_id'] = undefined;
@@ -120,7 +126,10 @@ Container.prototype['cpu_request'] = undefined;
 Container.prototype['created_at'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} id
  */
 Container.prototype['id'] = undefined;

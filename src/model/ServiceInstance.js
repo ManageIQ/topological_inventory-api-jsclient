@@ -116,7 +116,10 @@ ServiceInstance.prototype['created_at'] = undefined;
 ServiceInstance.prototype['extra'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} id
  */
 ServiceInstance.prototype['id'] = undefined;
@@ -138,7 +141,10 @@ ServiceInstance.prototype['name'] = undefined;
 ServiceInstance.prototype['service_offering_id'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} service_plan_id
  */
 ServiceInstance.prototype['service_plan_id'] = undefined;
@@ -154,7 +160,10 @@ ServiceInstance.prototype['source_created_at'] = undefined;
 ServiceInstance.prototype['source_deleted_at'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} source_id
  */
 ServiceInstance.prototype['source_id'] = undefined;
@@ -165,13 +174,19 @@ ServiceInstance.prototype['source_id'] = undefined;
 ServiceInstance.prototype['source_ref'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} source_region_id
  */
 ServiceInstance.prototype['source_region_id'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} subscription_id
  */
 ServiceInstance.prototype['subscription_id'] = undefined;

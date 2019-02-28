@@ -127,7 +127,10 @@ Flavor.prototype['disk_size'] = undefined;
 Flavor.prototype['extra'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} id
  */
 Flavor.prototype['id'] = undefined;
@@ -149,7 +152,10 @@ Flavor.prototype['memory'] = undefined;
 Flavor.prototype['name'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} source_id
  */
 Flavor.prototype['source_id'] = undefined;

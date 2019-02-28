@@ -90,7 +90,10 @@ class Authentication {
 Authentication.prototype['authtype'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} id
  */
 Authentication.prototype['id'] = undefined;
@@ -127,7 +130,10 @@ Authentication.prototype['status'] = undefined;
 Authentication.prototype['status_details'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} tenant_id
  */
 Authentication.prototype['tenant_id'] = undefined;

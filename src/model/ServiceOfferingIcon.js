@@ -84,13 +84,19 @@ ServiceOfferingIcon.prototype['created_at'] = undefined;
 ServiceOfferingIcon.prototype['data'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} id
  */
 ServiceOfferingIcon.prototype['id'] = undefined;
 
 /**
+<<<<<<< HEAD
  * ID of the resource
+=======
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
  * @member {String} source_id
  */
 ServiceOfferingIcon.prototype['source_id'] = undefined;

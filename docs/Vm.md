@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **createdAt** | **Date** |  | [optional] 
 **description** | **String** | Description of the Vm | [optional] 
 **extra** | **String** |  | [optional] 
+<<<<<<< HEAD
 **flavorId** | **String** | ID of the resource | [optional] 
 **hostname** | **String** |  | [optional] 
 **id** | **String** | ID of the resource | [optional] 
@@ -15,6 +16,15 @@ Name | Type | Description | Notes
 **memory** | **Number** | Total RAM in bytes | [optional] 
 **name** | **String** |  | [optional] 
 **orchestrationStackId** | **String** | ID of the resource | [optional] 
+=======
+**flavorId** | **String** |  | [optional] 
+**hostname** | **String** |  | [optional] 
+**id** | **String** |  | [optional] 
+**lastSeenAt** | **Date** |  | [optional] 
+**memory** | **Number** | Total RAM in bytes | [optional] 
+**name** | **String** |  | [optional] 
+**orchestrationStackId** | **String** |  | [optional] 
+>>>>>>> Update API definition, use v0.1 and resolve ID/IDReadonly problem.
 **powerState** | **String** |  | [optional] 
 **sourceCreatedAt** | **Date** |  | [optional] 
 **sourceDeletedAt** | **Date** |  | [optional] 
