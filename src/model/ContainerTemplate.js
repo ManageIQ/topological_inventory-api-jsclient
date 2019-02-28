@@ -48,11 +48,26 @@ class ContainerTemplate {
         if (data) {
             obj = obj || new ContainerTemplate();
 
+            if (data.hasOwnProperty('archived_at')) {
+                obj['archived_at'] = ApiClient.convertToType(data['archived_at'], 'Date');
+            }
+            if (data.hasOwnProperty('container_project_id')) {
+                obj['container_project_id'] = ApiClient.convertToType(data['container_project_id'], 'String');
+            }
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+            }
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
+            if (data.hasOwnProperty('last_seen_at')) {
+                obj['last_seen_at'] = ApiClient.convertToType(data['last_seen_at'], 'Date');
+            }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('resource_version')) {
+                obj['resource_version'] = ApiClient.convertToType(data['resource_version'], 'String');
             }
             if (data.hasOwnProperty('source_created_at')) {
                 obj['source_created_at'] = ApiClient.convertToType(data['source_created_at'], 'Date');
@@ -66,17 +81,11 @@ class ContainerTemplate {
             if (data.hasOwnProperty('source_ref')) {
                 obj['source_ref'] = ApiClient.convertToType(data['source_ref'], 'String');
             }
-            if (data.hasOwnProperty('tenant_id')) {
-                obj['tenant_id'] = ApiClient.convertToType(data['tenant_id'], 'String');
-            }
-            if (data.hasOwnProperty('container_project_id')) {
-                obj['container_project_id'] = ApiClient.convertToType(data['container_project_id'], 'String');
-            }
             if (data.hasOwnProperty('taggings')) {
                 obj['taggings'] = ApiClient.convertToType(data['taggings'], [Tagging]);
             }
-            if (data.hasOwnProperty('archived_at')) {
-                obj['archived_at'] = ApiClient.convertToType(data['archived_at'], 'Date');
+            if (data.hasOwnProperty('updated_at')) {
+                obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
             }
         }
         return obj;
@@ -86,14 +95,41 @@ class ContainerTemplate {
 }
 
 /**
+ * @member {Date} archived_at
+ */
+ContainerTemplate.prototype['archived_at'] = undefined;
+
+/**
+ * ID of the resource
+ * @member {String} container_project_id
+ */
+ContainerTemplate.prototype['container_project_id'] = undefined;
+
+/**
+ * @member {Date} created_at
+ */
+ContainerTemplate.prototype['created_at'] = undefined;
+
+/**
+ * ID of the resource
  * @member {String} id
  */
 ContainerTemplate.prototype['id'] = undefined;
 
 /**
+ * @member {Date} last_seen_at
+ */
+ContainerTemplate.prototype['last_seen_at'] = undefined;
+
+/**
  * @member {String} name
  */
 ContainerTemplate.prototype['name'] = undefined;
+
+/**
+ * @member {String} resource_version
+ */
+ContainerTemplate.prototype['resource_version'] = undefined;
 
 /**
  * @member {Date} source_created_at
@@ -106,6 +142,7 @@ ContainerTemplate.prototype['source_created_at'] = undefined;
 ContainerTemplate.prototype['source_deleted_at'] = undefined;
 
 /**
+ * ID of the resource
  * @member {String} source_id
  */
 ContainerTemplate.prototype['source_id'] = undefined;
@@ -116,24 +153,14 @@ ContainerTemplate.prototype['source_id'] = undefined;
 ContainerTemplate.prototype['source_ref'] = undefined;
 
 /**
- * @member {String} tenant_id
- */
-ContainerTemplate.prototype['tenant_id'] = undefined;
-
-/**
- * @member {String} container_project_id
- */
-ContainerTemplate.prototype['container_project_id'] = undefined;
-
-/**
  * @member {Array.<module:model/Tagging>} taggings
  */
 ContainerTemplate.prototype['taggings'] = undefined;
 
 /**
- * @member {Date} archived_at
+ * @member {Date} updated_at
  */
-ContainerTemplate.prototype['archived_at'] = undefined;
+ContainerTemplate.prototype['updated_at'] = undefined;
 
 
 

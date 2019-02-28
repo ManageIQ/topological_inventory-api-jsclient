@@ -3,12 +3,15 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**Object**](.md) |  | [optional] 
-**tenantId** | [**Object**](.md) |  | [optional] 
-**sourceId** | [**Object**](.md) |  | [optional] 
-**sourceRef** | **String** |  | [optional] 
-**name** | **String** |  | [optional] 
-**description** | **String** |  | [optional] 
 **archivedAt** | **Date** |  | [optional] 
+**createdAt** | **Date** |  | [optional] 
+**description** | **String** |  | [optional] 
+**extra** | **String** |  | [optional] 
+**id** | **String** | ID of the resource | [optional] 
+**lastSeenAt** | **Date** |  | [optional] 
+**name** | **String** |  | [optional] 
+**sourceId** | **String** | ID of the resource | [optional] 
+**sourceRef** | **String** |  | [optional] 
+**updatedAt** | **Date** |  | [optional] 
 
 

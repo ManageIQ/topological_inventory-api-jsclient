@@ -64,6 +64,7 @@ class Tagging {
 }
 
 /**
+ * ID of the resource
  * @member {String} tag_id
  */
 Tagging.prototype['tag_id'] = undefined;

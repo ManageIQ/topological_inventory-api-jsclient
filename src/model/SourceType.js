@@ -22,13 +22,10 @@ class SourceType {
     /**
      * Constructs a new <code>SourceType</code>.
      * @alias module:model/SourceType
-     * @param name {String} 
-     * @param productName {String} 
-     * @param vendor {String} 
      */
-    constructor(name, productName, vendor) { 
+    constructor() { 
         
-        SourceType.initialize(this, name, productName, vendor);
+        SourceType.initialize(this);
     }
 
     /**
@@ -36,10 +33,7 @@ class SourceType {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name, productName, vendor) { 
-        obj['name'] = name;
-        obj['product_name'] = productName;
-        obj['vendor'] = vendor;
+    static initialize(obj) { 
     }
 
     /**
@@ -53,6 +47,9 @@ class SourceType {
         if (data) {
             obj = obj || new SourceType();
 
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+            }
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
@@ -62,11 +59,14 @@ class SourceType {
             if (data.hasOwnProperty('product_name')) {
                 obj['product_name'] = ApiClient.convertToType(data['product_name'], 'String');
             }
+            if (data.hasOwnProperty('schema')) {
+                obj['schema'] = ApiClient.convertToType(data['schema'], 'String');
+            }
+            if (data.hasOwnProperty('updated_at')) {
+                obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
+            }
             if (data.hasOwnProperty('vendor')) {
                 obj['vendor'] = ApiClient.convertToType(data['vendor'], 'String');
-            }
-            if (data.hasOwnProperty('schema')) {
-                obj['schema'] = ApiClient.convertToType(data['schema'], Object);
             }
         }
         return obj;
@@ -76,6 +76,12 @@ class SourceType {
 }
 
 /**
+ * @member {Date} created_at
+ */
+SourceType.prototype['created_at'] = undefined;
+
+/**
+ * ID of the resource
  * @member {String} id
  */
 SourceType.prototype['id'] = undefined;
@@ -91,14 +97,19 @@ SourceType.prototype['name'] = undefined;
 SourceType.prototype['product_name'] = undefined;
 
 /**
+ * @member {String} schema
+ */
+SourceType.prototype['schema'] = undefined;
+
+/**
+ * @member {Date} updated_at
+ */
+SourceType.prototype['updated_at'] = undefined;
+
+/**
  * @member {String} vendor
  */
 SourceType.prototype['vendor'] = undefined;
-
-/**
- * @member {Object} schema
- */
-SourceType.prototype['schema'] = undefined;
 
 
 

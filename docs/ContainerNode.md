@@ -3,18 +3,21 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
-**name** | **String** |  | [optional] 
+**archivedAt** | **Date** |  | [optional] 
 **cpus** | **Number** |  | [optional] 
+**createdAt** | **Date** |  | [optional] 
+**id** | **String** | ID of the resource | [optional] 
+**lastSeenAt** | **Date** |  | [optional] 
+**livesOnId** | **String** | ID of the resource | [optional] 
 **livesOnType** | **String** |  | [optional] 
-**livesOnId** | [**Object**](.md) |  | [optional] 
 **memory** | **Number** |  | [optional] 
+**name** | **String** |  | [optional] 
+**resourceVersion** | **String** |  | [optional] 
 **sourceCreatedAt** | **Date** |  | [optional] 
 **sourceDeletedAt** | **Date** |  | [optional] 
-**sourceId** | **String** |  | [optional] 
+**sourceId** | **String** | ID of the resource | [optional] 
 **sourceRef** | **String** |  | [optional] 
-**tenantId** | **String** |  | [optional] 
 **taggings** | [**[Tagging]**](Tagging.md) |  | [optional] 
-**archivedAt** | **Date** |  | [optional] 
+**updatedAt** | **Date** |  | [optional] 
 
 

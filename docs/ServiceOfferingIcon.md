@@ -3,8 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
-**sourceRef** | **String** |  | [optional] 
+**createdAt** | **Date** |  | [optional] 
 **data** | **String** | Raw icon data | [optional] 
+**id** | **String** | ID of the resource | [optional] 
+**sourceId** | **String** | ID of the resource | [optional] 
+**sourceRef** | **String** |  | [optional] 
+**updatedAt** | **Date** |  | [optional] 
 
 

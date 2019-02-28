@@ -48,14 +48,44 @@ class Vm {
         if (data) {
             obj = obj || new Vm();
 
+            if (data.hasOwnProperty('archived_at')) {
+                obj['archived_at'] = ApiClient.convertToType(data['archived_at'], 'Date');
+            }
+            if (data.hasOwnProperty('cpus')) {
+                obj['cpus'] = ApiClient.convertToType(data['cpus'], 'Number');
+            }
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+            }
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            }
+            if (data.hasOwnProperty('extra')) {
+                obj['extra'] = ApiClient.convertToType(data['extra'], 'String');
+            }
+            if (data.hasOwnProperty('flavor_id')) {
+                obj['flavor_id'] = ApiClient.convertToType(data['flavor_id'], 'String');
+            }
+            if (data.hasOwnProperty('hostname')) {
+                obj['hostname'] = ApiClient.convertToType(data['hostname'], 'String');
+            }
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            }
+            if (data.hasOwnProperty('last_seen_at')) {
+                obj['last_seen_at'] = ApiClient.convertToType(data['last_seen_at'], 'Date');
+            }
+            if (data.hasOwnProperty('memory')) {
+                obj['memory'] = ApiClient.convertToType(data['memory'], 'Number');
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
-                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            if (data.hasOwnProperty('orchestration_stack_id')) {
+                obj['orchestration_stack_id'] = ApiClient.convertToType(data['orchestration_stack_id'], 'String');
+            }
+            if (data.hasOwnProperty('power_state')) {
+                obj['power_state'] = ApiClient.convertToType(data['power_state'], 'String');
             }
             if (data.hasOwnProperty('source_created_at')) {
                 obj['source_created_at'] = ApiClient.convertToType(data['source_created_at'], 'Date');
@@ -69,35 +99,14 @@ class Vm {
             if (data.hasOwnProperty('source_ref')) {
                 obj['source_ref'] = ApiClient.convertToType(data['source_ref'], 'String');
             }
-            if (data.hasOwnProperty('tenant_id')) {
-                obj['tenant_id'] = ApiClient.convertToType(data['tenant_id'], 'String');
+            if (data.hasOwnProperty('taggings')) {
+                obj['taggings'] = ApiClient.convertToType(data['taggings'], [Tagging]);
             }
             if (data.hasOwnProperty('uid_ems')) {
                 obj['uid_ems'] = ApiClient.convertToType(data['uid_ems'], 'String');
             }
-            if (data.hasOwnProperty('hostname')) {
-                obj['hostname'] = ApiClient.convertToType(data['hostname'], 'String');
-            }
-            if (data.hasOwnProperty('power_state')) {
-                obj['power_state'] = ApiClient.convertToType(data['power_state'], 'String');
-            }
-            if (data.hasOwnProperty('cpus')) {
-                obj['cpus'] = ApiClient.convertToType(data['cpus'], 'Number');
-            }
-            if (data.hasOwnProperty('memory')) {
-                obj['memory'] = ApiClient.convertToType(data['memory'], 'Number');
-            }
-            if (data.hasOwnProperty('orchestration_stack_id')) {
-                obj['orchestration_stack_id'] = ApiClient.convertToType(data['orchestration_stack_id'], 'String');
-            }
-            if (data.hasOwnProperty('flavor_id')) {
-                obj['flavor_id'] = ApiClient.convertToType(data['flavor_id'], 'String');
-            }
-            if (data.hasOwnProperty('taggings')) {
-                obj['taggings'] = ApiClient.convertToType(data['taggings'], [Tagging]);
-            }
-            if (data.hasOwnProperty('archived_at')) {
-                obj['archived_at'] = ApiClient.convertToType(data['archived_at'], 'Date');
+            if (data.hasOwnProperty('updated_at')) {
+                obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
             }
         }
         return obj;
@@ -107,9 +116,59 @@ class Vm {
 }
 
 /**
+ * @member {Date} archived_at
+ */
+Vm.prototype['archived_at'] = undefined;
+
+/**
+ * Total number of CPUs
+ * @member {Number} cpus
+ */
+Vm.prototype['cpus'] = undefined;
+
+/**
+ * @member {Date} created_at
+ */
+Vm.prototype['created_at'] = undefined;
+
+/**
+ * Description of the Vm
+ * @member {String} description
+ */
+Vm.prototype['description'] = undefined;
+
+/**
+ * @member {String} extra
+ */
+Vm.prototype['extra'] = undefined;
+
+/**
+ * ID of the resource
+ * @member {String} flavor_id
+ */
+Vm.prototype['flavor_id'] = undefined;
+
+/**
+ * @member {String} hostname
+ */
+Vm.prototype['hostname'] = undefined;
+
+/**
+ * ID of the resource
  * @member {String} id
  */
 Vm.prototype['id'] = undefined;
+
+/**
+ * @member {Date} last_seen_at
+ */
+Vm.prototype['last_seen_at'] = undefined;
+
+/**
+ * Total RAM in bytes
+ * @member {Number} memory
+ */
+Vm.prototype['memory'] = undefined;
 
 /**
  * @member {String} name
@@ -117,10 +176,15 @@ Vm.prototype['id'] = undefined;
 Vm.prototype['name'] = undefined;
 
 /**
- * Description of the Vm
- * @member {String} description
+ * ID of the resource
+ * @member {String} orchestration_stack_id
  */
-Vm.prototype['description'] = undefined;
+Vm.prototype['orchestration_stack_id'] = undefined;
+
+/**
+ * @member {String} power_state
+ */
+Vm.prototype['power_state'] = undefined;
 
 /**
  * @member {Date} source_created_at
@@ -133,6 +197,7 @@ Vm.prototype['source_created_at'] = undefined;
 Vm.prototype['source_deleted_at'] = undefined;
 
 /**
+ * ID of the resource
  * @member {String} source_id
  */
 Vm.prototype['source_id'] = undefined;
@@ -143,9 +208,9 @@ Vm.prototype['source_id'] = undefined;
 Vm.prototype['source_ref'] = undefined;
 
 /**
- * @member {String} tenant_id
+ * @member {Array.<module:model/Tagging>} taggings
  */
-Vm.prototype['tenant_id'] = undefined;
+Vm.prototype['taggings'] = undefined;
 
 /**
  * Cross-Source Unique Reference
@@ -154,46 +219,9 @@ Vm.prototype['tenant_id'] = undefined;
 Vm.prototype['uid_ems'] = undefined;
 
 /**
- * @member {String} hostname
+ * @member {Date} updated_at
  */
-Vm.prototype['hostname'] = undefined;
-
-/**
- * @member {String} power_state
- */
-Vm.prototype['power_state'] = undefined;
-
-/**
- * Total number of CPUs
- * @member {Number} cpus
- */
-Vm.prototype['cpus'] = undefined;
-
-/**
- * Total RAM in bytes
- * @member {Number} memory
- */
-Vm.prototype['memory'] = undefined;
-
-/**
- * @member {String} orchestration_stack_id
- */
-Vm.prototype['orchestration_stack_id'] = undefined;
-
-/**
- * @member {String} flavor_id
- */
-Vm.prototype['flavor_id'] = undefined;
-
-/**
- * @member {Array.<module:model/Tagging>} taggings
- */
-Vm.prototype['taggings'] = undefined;
-
-/**
- * @member {Date} archived_at
- */
-Vm.prototype['archived_at'] = undefined;
+Vm.prototype['updated_at'] = undefined;
 
 
 

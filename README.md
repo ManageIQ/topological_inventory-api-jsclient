@@ -100,6 +100,7 @@ Class | Method | HTTP request | Description
 *@ManageiqTopologicalInventory.DefaultApi* | [**deleteAuthentication**](docs/DefaultApi.md#deleteAuthentication) | **DELETE** /authentications/{id} | Delete an existing Authentication
 *@ManageiqTopologicalInventory.DefaultApi* | [**deleteEndpoint**](docs/DefaultApi.md#deleteEndpoint) | **DELETE** /endpoints/{id} | Delete an existing Endpoint
 *@ManageiqTopologicalInventory.DefaultApi* | [**deleteSource**](docs/DefaultApi.md#deleteSource) | **DELETE** /sources/{id} | Delete an existing Source
+*@ManageiqTopologicalInventory.DefaultApi* | [**getDocumentation**](docs/DefaultApi.md#getDocumentation) | **GET** /openapi.json | Return this API document in JSON format
 *@ManageiqTopologicalInventory.DefaultApi* | [**listAuthentications**](docs/DefaultApi.md#listAuthentications) | **GET** /authentications | List Authentications
 *@ManageiqTopologicalInventory.DefaultApi* | [**listContainerGroupContainers**](docs/DefaultApi.md#listContainerGroupContainers) | **GET** /container_groups/{id}/containers | List Containers for ContainerGroup
 *@ManageiqTopologicalInventory.DefaultApi* | [**listContainerGroups**](docs/DefaultApi.md#listContainerGroups) | **GET** /container_groups | List ContainerGroups
@@ -111,6 +112,7 @@ Class | Method | HTTP request | Description
 *@ManageiqTopologicalInventory.DefaultApi* | [**listContainerProjects**](docs/DefaultApi.md#listContainerProjects) | **GET** /container_projects | List ContainerProjects
 *@ManageiqTopologicalInventory.DefaultApi* | [**listContainerTemplates**](docs/DefaultApi.md#listContainerTemplates) | **GET** /container_templates | List ContainerTemplates
 *@ManageiqTopologicalInventory.DefaultApi* | [**listContainers**](docs/DefaultApi.md#listContainers) | **GET** /containers | List Containers
+*@ManageiqTopologicalInventory.DefaultApi* | [**listEndpointAuthentications**](docs/DefaultApi.md#listEndpointAuthentications) | **GET** /endpoints/{id}/authentications | List Authentications for Endpoint
 *@ManageiqTopologicalInventory.DefaultApi* | [**listEndpoints**](docs/DefaultApi.md#listEndpoints) | **GET** /endpoints | List Endpoints
 *@ManageiqTopologicalInventory.DefaultApi* | [**listFlavors**](docs/DefaultApi.md#listFlavors) | **GET** /flavors | List Flavors
 *@ManageiqTopologicalInventory.DefaultApi* | [**listOrchestrationStacks**](docs/DefaultApi.md#listOrchestrationStacks) | **GET** /orchestration_stacks | List OrchestrationStacks
@@ -121,6 +123,7 @@ Class | Method | HTTP request | Description
 *@ManageiqTopologicalInventory.DefaultApi* | [**listServiceOfferings**](docs/DefaultApi.md#listServiceOfferings) | **GET** /service_offerings | List ServiceOfferings
 *@ManageiqTopologicalInventory.DefaultApi* | [**listServicePlanServiceInstances**](docs/DefaultApi.md#listServicePlanServiceInstances) | **GET** /service_plans/{id}/service_instances | List ServiceInstances for ServicePlan
 *@ManageiqTopologicalInventory.DefaultApi* | [**listServicePlans**](docs/DefaultApi.md#listServicePlans) | **GET** /service_plans | List ServicePlans
+*@ManageiqTopologicalInventory.DefaultApi* | [**listSourceAvailabilities**](docs/DefaultApi.md#listSourceAvailabilities) | **GET** /sources/{id}/availabilities | List Availabilities for Source
 *@ManageiqTopologicalInventory.DefaultApi* | [**listSourceContainerGroups**](docs/DefaultApi.md#listSourceContainerGroups) | **GET** /sources/{id}/container_groups | List ContainerGroups for Source
 *@ManageiqTopologicalInventory.DefaultApi* | [**listSourceContainerImages**](docs/DefaultApi.md#listSourceContainerImages) | **GET** /sources/{id}/container_images | List ContainerImages for Source
 *@ManageiqTopologicalInventory.DefaultApi* | [**listSourceContainerNodes**](docs/DefaultApi.md#listSourceContainerNodes) | **GET** /sources/{id}/container_nodes | List ContainerNodes for Source
@@ -132,6 +135,7 @@ Class | Method | HTTP request | Description
 *@ManageiqTopologicalInventory.DefaultApi* | [**listSourceServiceInstances**](docs/DefaultApi.md#listSourceServiceInstances) | **GET** /sources/{id}/service_instances | List ServiceInstances for Source
 *@ManageiqTopologicalInventory.DefaultApi* | [**listSourceServiceOfferings**](docs/DefaultApi.md#listSourceServiceOfferings) | **GET** /sources/{id}/service_offerings | List ServiceOfferings for Source
 *@ManageiqTopologicalInventory.DefaultApi* | [**listSourceServicePlans**](docs/DefaultApi.md#listSourceServicePlans) | **GET** /sources/{id}/service_plans | List ServicePlans for Source
+*@ManageiqTopologicalInventory.DefaultApi* | [**listSourceTypeAvailabilities**](docs/DefaultApi.md#listSourceTypeAvailabilities) | **GET** /source_types/{id}/availabilities | List Availabilities for SourceType
 *@ManageiqTopologicalInventory.DefaultApi* | [**listSourceTypeSources**](docs/DefaultApi.md#listSourceTypeSources) | **GET** /source_types/{id}/sources | List Sources for SourceType
 *@ManageiqTopologicalInventory.DefaultApi* | [**listSourceTypes**](docs/DefaultApi.md#listSourceTypes) | **GET** /source_types | List SourceTypes
 *@ManageiqTopologicalInventory.DefaultApi* | [**listSourceVms**](docs/DefaultApi.md#listSourceVms) | **GET** /sources/{id}/vms | List Vms for Source
@@ -172,12 +176,15 @@ Class | Method | HTTP request | Description
 *@ManageiqTopologicalInventory.DefaultApi* | [**updateAuthentication**](docs/DefaultApi.md#updateAuthentication) | **PATCH** /authentications/{id} | Update an existing Authentication
 *@ManageiqTopologicalInventory.DefaultApi* | [**updateEndpoint**](docs/DefaultApi.md#updateEndpoint) | **PATCH** /endpoints/{id} | Update an existing Endpoint
 *@ManageiqTopologicalInventory.DefaultApi* | [**updateSource**](docs/DefaultApi.md#updateSource) | **PATCH** /sources/{id} | Update an existing Source
+*@ManageiqTopologicalInventory.DefaultApi* | [**updateTask**](docs/DefaultApi.md#updateTask) | **PATCH** /tasks/{id} | Update an existing Task
 
 
 ## Documentation for Models
 
  - [@ManageiqTopologicalInventory.Authentication](docs/Authentication.md)
  - [@ManageiqTopologicalInventory.AuthenticationsCollection](docs/AuthenticationsCollection.md)
+ - [@ManageiqTopologicalInventory.AvailabilitiesCollection](docs/AvailabilitiesCollection.md)
+ - [@ManageiqTopologicalInventory.Availability](docs/Availability.md)
  - [@ManageiqTopologicalInventory.CollectionLinks](docs/CollectionLinks.md)
  - [@ManageiqTopologicalInventory.CollectionMetadata](docs/CollectionMetadata.md)
  - [@ManageiqTopologicalInventory.Container](docs/Container.md)
@@ -204,6 +211,7 @@ Class | Method | HTTP request | Description
  - [@ManageiqTopologicalInventory.ServiceInstancesCollection](docs/ServiceInstancesCollection.md)
  - [@ManageiqTopologicalInventory.ServiceOffering](docs/ServiceOffering.md)
  - [@ManageiqTopologicalInventory.ServiceOfferingIcon](docs/ServiceOfferingIcon.md)
+ - [@ManageiqTopologicalInventory.ServiceOfferingIconsCollection](docs/ServiceOfferingIconsCollection.md)
  - [@ManageiqTopologicalInventory.ServiceOfferingsCollection](docs/ServiceOfferingsCollection.md)
  - [@ManageiqTopologicalInventory.ServicePlan](docs/ServicePlan.md)
  - [@ManageiqTopologicalInventory.ServicePlansCollection](docs/ServicePlansCollection.md)

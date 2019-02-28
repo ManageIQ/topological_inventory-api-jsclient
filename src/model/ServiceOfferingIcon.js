@@ -47,14 +47,23 @@ class ServiceOfferingIcon {
         if (data) {
             obj = obj || new ServiceOfferingIcon();
 
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+            }
+            if (data.hasOwnProperty('data')) {
+                obj['data'] = ApiClient.convertToType(data['data'], 'String');
+            }
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            }
+            if (data.hasOwnProperty('source_id')) {
+                obj['source_id'] = ApiClient.convertToType(data['source_id'], 'String');
             }
             if (data.hasOwnProperty('source_ref')) {
                 obj['source_ref'] = ApiClient.convertToType(data['source_ref'], 'String');
             }
-            if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], 'String');
+            if (data.hasOwnProperty('updated_at')) {
+                obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
             }
         }
         return obj;
@@ -64,9 +73,27 @@ class ServiceOfferingIcon {
 }
 
 /**
+ * @member {Date} created_at
+ */
+ServiceOfferingIcon.prototype['created_at'] = undefined;
+
+/**
+ * Raw icon data
+ * @member {String} data
+ */
+ServiceOfferingIcon.prototype['data'] = undefined;
+
+/**
+ * ID of the resource
  * @member {String} id
  */
 ServiceOfferingIcon.prototype['id'] = undefined;
+
+/**
+ * ID of the resource
+ * @member {String} source_id
+ */
+ServiceOfferingIcon.prototype['source_id'] = undefined;
 
 /**
  * @member {String} source_ref
@@ -74,10 +101,9 @@ ServiceOfferingIcon.prototype['id'] = undefined;
 ServiceOfferingIcon.prototype['source_ref'] = undefined;
 
 /**
- * Raw icon data
- * @member {String} data
+ * @member {Date} updated_at
  */
-ServiceOfferingIcon.prototype['data'] = undefined;
+ServiceOfferingIcon.prototype['updated_at'] = undefined;
 
 
 

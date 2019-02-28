@@ -47,6 +47,12 @@ class Tag {
         if (data) {
             obj = obj || new Tag();
 
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+            }
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            }
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
@@ -56,9 +62,6 @@ class Tag {
             if (data.hasOwnProperty('namespace')) {
                 obj['namespace'] = ApiClient.convertToType(data['namespace'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
-                obj['description'] = ApiClient.convertToType(data['description'], 'String');
-            }
         }
         return obj;
     }
@@ -67,6 +70,17 @@ class Tag {
 }
 
 /**
+ * @member {Date} created_at
+ */
+Tag.prototype['created_at'] = undefined;
+
+/**
+ * @member {String} description
+ */
+Tag.prototype['description'] = undefined;
+
+/**
+ * ID of the resource
  * @member {String} id
  */
 Tag.prototype['id'] = undefined;
@@ -80,11 +94,6 @@ Tag.prototype['name'] = undefined;
  * @member {String} namespace
  */
 Tag.prototype['namespace'] = undefined;
-
-/**
- * @member {String} description
- */
-Tag.prototype['description'] = undefined;
 
 
 

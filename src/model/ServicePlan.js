@@ -47,17 +47,35 @@ class ServicePlan {
         if (data) {
             obj = obj || new ServicePlan();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('archived_at')) {
+                obj['archived_at'] = ApiClient.convertToType(data['archived_at'], 'Date');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('create_json_schema')) {
+                obj['create_json_schema'] = ApiClient.convertToType(data['create_json_schema'], 'String');
+            }
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
             }
             if (data.hasOwnProperty('description')) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
             if (data.hasOwnProperty('extra')) {
                 obj['extra'] = ApiClient.convertToType(data['extra'], 'String');
+            }
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            }
+            if (data.hasOwnProperty('last_seen_at')) {
+                obj['last_seen_at'] = ApiClient.convertToType(data['last_seen_at'], 'Date');
+            }
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('resource_version')) {
+                obj['resource_version'] = ApiClient.convertToType(data['resource_version'], 'String');
+            }
+            if (data.hasOwnProperty('service_offering_id')) {
+                obj['service_offering_id'] = ApiClient.convertToType(data['service_offering_id'], 'String');
             }
             if (data.hasOwnProperty('source_created_at')) {
                 obj['source_created_at'] = ApiClient.convertToType(data['source_created_at'], 'Date');
@@ -71,20 +89,17 @@ class ServicePlan {
             if (data.hasOwnProperty('source_ref')) {
                 obj['source_ref'] = ApiClient.convertToType(data['source_ref'], 'String');
             }
-            if (data.hasOwnProperty('tenant_id')) {
-                obj['tenant_id'] = ApiClient.convertToType(data['tenant_id'], 'String');
+            if (data.hasOwnProperty('source_region_id')) {
+                obj['source_region_id'] = ApiClient.convertToType(data['source_region_id'], 'String');
             }
-            if (data.hasOwnProperty('service_offering_id')) {
-                obj['service_offering_id'] = ApiClient.convertToType(data['service_offering_id'], 'String');
-            }
-            if (data.hasOwnProperty('create_json_schema')) {
-                obj['create_json_schema'] = ApiClient.convertToType(data['create_json_schema'], Object);
+            if (data.hasOwnProperty('subscription_id')) {
+                obj['subscription_id'] = ApiClient.convertToType(data['subscription_id'], 'String');
             }
             if (data.hasOwnProperty('update_json_schema')) {
-                obj['update_json_schema'] = ApiClient.convertToType(data['update_json_schema'], Object);
+                obj['update_json_schema'] = ApiClient.convertToType(data['update_json_schema'], 'String');
             }
-            if (data.hasOwnProperty('archived_at')) {
-                obj['archived_at'] = ApiClient.convertToType(data['archived_at'], 'Date');
+            if (data.hasOwnProperty('updated_at')) {
+                obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
             }
         }
         return obj;
@@ -94,14 +109,19 @@ class ServicePlan {
 }
 
 /**
- * @member {String} id
+ * @member {Date} archived_at
  */
-ServicePlan.prototype['id'] = undefined;
+ServicePlan.prototype['archived_at'] = undefined;
 
 /**
- * @member {String} name
+ * @member {String} create_json_schema
  */
-ServicePlan.prototype['name'] = undefined;
+ServicePlan.prototype['create_json_schema'] = undefined;
+
+/**
+ * @member {Date} created_at
+ */
+ServicePlan.prototype['created_at'] = undefined;
 
 /**
  * @member {String} description
@@ -115,6 +135,33 @@ ServicePlan.prototype['description'] = undefined;
 ServicePlan.prototype['extra'] = undefined;
 
 /**
+ * ID of the resource
+ * @member {String} id
+ */
+ServicePlan.prototype['id'] = undefined;
+
+/**
+ * @member {Date} last_seen_at
+ */
+ServicePlan.prototype['last_seen_at'] = undefined;
+
+/**
+ * @member {String} name
+ */
+ServicePlan.prototype['name'] = undefined;
+
+/**
+ * @member {String} resource_version
+ */
+ServicePlan.prototype['resource_version'] = undefined;
+
+/**
+ * ID of the resource
+ * @member {String} service_offering_id
+ */
+ServicePlan.prototype['service_offering_id'] = undefined;
+
+/**
  * @member {Date} source_created_at
  */
 ServicePlan.prototype['source_created_at'] = undefined;
@@ -125,6 +172,7 @@ ServicePlan.prototype['source_created_at'] = undefined;
 ServicePlan.prototype['source_deleted_at'] = undefined;
 
 /**
+ * ID of the resource
  * @member {String} source_id
  */
 ServicePlan.prototype['source_id'] = undefined;
@@ -135,29 +183,26 @@ ServicePlan.prototype['source_id'] = undefined;
 ServicePlan.prototype['source_ref'] = undefined;
 
 /**
- * @member {String} tenant_id
+ * ID of the resource
+ * @member {String} source_region_id
  */
-ServicePlan.prototype['tenant_id'] = undefined;
+ServicePlan.prototype['source_region_id'] = undefined;
 
 /**
- * @member {String} service_offering_id
+ * ID of the resource
+ * @member {String} subscription_id
  */
-ServicePlan.prototype['service_offering_id'] = undefined;
+ServicePlan.prototype['subscription_id'] = undefined;
 
 /**
- * @member {Object} create_json_schema
- */
-ServicePlan.prototype['create_json_schema'] = undefined;
-
-/**
- * @member {Object} update_json_schema
+ * @member {String} update_json_schema
  */
 ServicePlan.prototype['update_json_schema'] = undefined;
 
 /**
- * @member {Date} archived_at
+ * @member {Date} updated_at
  */
-ServicePlan.prototype['archived_at'] = undefined;
+ServicePlan.prototype['updated_at'] = undefined;
 
 
 

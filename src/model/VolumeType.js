@@ -47,26 +47,35 @@ class VolumeType {
         if (data) {
             obj = obj || new VolumeType();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], Object);
+            if (data.hasOwnProperty('archived_at')) {
+                obj['archived_at'] = ApiClient.convertToType(data['archived_at'], 'Date');
             }
-            if (data.hasOwnProperty('tenant_id')) {
-                obj['tenant_id'] = ApiClient.convertToType(data['tenant_id'], Object);
-            }
-            if (data.hasOwnProperty('source_id')) {
-                obj['source_id'] = ApiClient.convertToType(data['source_id'], Object);
-            }
-            if (data.hasOwnProperty('source_ref')) {
-                obj['source_ref'] = ApiClient.convertToType(data['source_ref'], 'String');
-            }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
             }
             if (data.hasOwnProperty('description')) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('archived_at')) {
-                obj['archived_at'] = ApiClient.convertToType(data['archived_at'], 'Date');
+            if (data.hasOwnProperty('extra')) {
+                obj['extra'] = ApiClient.convertToType(data['extra'], 'String');
+            }
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            }
+            if (data.hasOwnProperty('last_seen_at')) {
+                obj['last_seen_at'] = ApiClient.convertToType(data['last_seen_at'], 'Date');
+            }
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('source_id')) {
+                obj['source_id'] = ApiClient.convertToType(data['source_id'], 'String');
+            }
+            if (data.hasOwnProperty('source_ref')) {
+                obj['source_ref'] = ApiClient.convertToType(data['source_ref'], 'String');
+            }
+            if (data.hasOwnProperty('updated_at')) {
+                obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
             }
         }
         return obj;
@@ -76,17 +85,44 @@ class VolumeType {
 }
 
 /**
- * @member {Object} id
+ * @member {Date} archived_at
+ */
+VolumeType.prototype['archived_at'] = undefined;
+
+/**
+ * @member {Date} created_at
+ */
+VolumeType.prototype['created_at'] = undefined;
+
+/**
+ * @member {String} description
+ */
+VolumeType.prototype['description'] = undefined;
+
+/**
+ * @member {String} extra
+ */
+VolumeType.prototype['extra'] = undefined;
+
+/**
+ * ID of the resource
+ * @member {String} id
  */
 VolumeType.prototype['id'] = undefined;
 
 /**
- * @member {Object} tenant_id
+ * @member {Date} last_seen_at
  */
-VolumeType.prototype['tenant_id'] = undefined;
+VolumeType.prototype['last_seen_at'] = undefined;
 
 /**
- * @member {Object} source_id
+ * @member {String} name
+ */
+VolumeType.prototype['name'] = undefined;
+
+/**
+ * ID of the resource
+ * @member {String} source_id
  */
 VolumeType.prototype['source_id'] = undefined;
 
@@ -96,19 +132,9 @@ VolumeType.prototype['source_id'] = undefined;
 VolumeType.prototype['source_ref'] = undefined;
 
 /**
- * @member {String} name
+ * @member {Date} updated_at
  */
-VolumeType.prototype['name'] = undefined;
-
-/**
- * @member {String} description
- */
-VolumeType.prototype['description'] = undefined;
-
-/**
- * @member {Date} archived_at
- */
-VolumeType.prototype['archived_at'] = undefined;
+VolumeType.prototype['updated_at'] = undefined;
 
 
 

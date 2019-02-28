@@ -47,26 +47,29 @@ class Task {
         if (data) {
             obj = obj || new Task();
 
+            if (data.hasOwnProperty('completed_at')) {
+                obj['completed_at'] = ApiClient.convertToType(data['completed_at'], 'Date');
+            }
+            if (data.hasOwnProperty('context')) {
+                obj['context'] = ApiClient.convertToType(data['context'], 'String');
+            }
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+            }
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('status')) {
-                obj['status'] = ApiClient.convertToType(data['status'], 'String');
-            }
             if (data.hasOwnProperty('state')) {
                 obj['state'] = ApiClient.convertToType(data['state'], 'String');
             }
-            if (data.hasOwnProperty('context')) {
-                obj['context'] = ApiClient.convertToType(data['context'], Object);
+            if (data.hasOwnProperty('status')) {
+                obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
-            if (data.hasOwnProperty('completed_at')) {
-                obj['completed_at'] = ApiClient.convertToType(data['completed_at'], 'Date');
-            }
-            if (data.hasOwnProperty('tenant_id')) {
-                obj['tenant_id'] = ApiClient.convertToType(data['tenant_id'], 'String');
+            if (data.hasOwnProperty('updated_at')) {
+                obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
             }
         }
         return obj;
@@ -76,6 +79,22 @@ class Task {
 }
 
 /**
+ * @member {Date} completed_at
+ */
+Task.prototype['completed_at'] = undefined;
+
+/**
+ * @member {String} context
+ */
+Task.prototype['context'] = undefined;
+
+/**
+ * @member {Date} created_at
+ */
+Task.prototype['created_at'] = undefined;
+
+/**
+ * ID of the resource
  * @member {String} id
  */
 Task.prototype['id'] = undefined;
@@ -86,29 +105,19 @@ Task.prototype['id'] = undefined;
 Task.prototype['name'] = undefined;
 
 /**
- * @member {String} status
- */
-Task.prototype['status'] = undefined;
-
-/**
  * @member {String} state
  */
 Task.prototype['state'] = undefined;
 
 /**
- * @member {Object} context
+ * @member {String} status
  */
-Task.prototype['context'] = undefined;
+Task.prototype['status'] = undefined;
 
 /**
- * @member {Date} completed_at
+ * @member {Date} updated_at
  */
-Task.prototype['completed_at'] = undefined;
-
-/**
- * @member {String} tenant_id
- */
-Task.prototype['tenant_id'] = undefined;
+Task.prototype['updated_at'] = undefined;
 
 
 

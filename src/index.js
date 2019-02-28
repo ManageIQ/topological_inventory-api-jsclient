@@ -15,6 +15,8 @@
 import ApiClient from './ApiClient';
 import Authentication from './model/Authentication';
 import AuthenticationsCollection from './model/AuthenticationsCollection';
+import AvailabilitiesCollection from './model/AvailabilitiesCollection';
+import Availability from './model/Availability';
 import CollectionLinks from './model/CollectionLinks';
 import CollectionMetadata from './model/CollectionMetadata';
 import Container from './model/Container';
@@ -41,6 +43,7 @@ import ServiceInstance from './model/ServiceInstance';
 import ServiceInstancesCollection from './model/ServiceInstancesCollection';
 import ServiceOffering from './model/ServiceOffering';
 import ServiceOfferingIcon from './model/ServiceOfferingIcon';
+import ServiceOfferingIconsCollection from './model/ServiceOfferingIconsCollection';
 import ServiceOfferingsCollection from './model/ServiceOfferingsCollection';
 import ServicePlan from './model/ServicePlan';
 import ServicePlansCollection from './model/ServicePlansCollection';
@@ -113,6 +116,18 @@ export {
      * @property {module:model/AuthenticationsCollection}
      */
     AuthenticationsCollection,
+
+    /**
+     * The AvailabilitiesCollection model constructor.
+     * @property {module:model/AvailabilitiesCollection}
+     */
+    AvailabilitiesCollection,
+
+    /**
+     * The Availability model constructor.
+     * @property {module:model/Availability}
+     */
+    Availability,
 
     /**
      * The CollectionLinks model constructor.
@@ -269,6 +284,12 @@ export {
      * @property {module:model/ServiceOfferingIcon}
      */
     ServiceOfferingIcon,
+
+    /**
+     * The ServiceOfferingIconsCollection model constructor.
+     * @property {module:model/ServiceOfferingIconsCollection}
+     */
+    ServiceOfferingIconsCollection,
 
     /**
      * The ServiceOfferingsCollection model constructor.

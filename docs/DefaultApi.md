@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**deleteAuthentication**](DefaultApi.md#deleteAuthentication) | **DELETE** /authentications/{id} | Delete an existing Authentication
 [**deleteEndpoint**](DefaultApi.md#deleteEndpoint) | **DELETE** /endpoints/{id} | Delete an existing Endpoint
 [**deleteSource**](DefaultApi.md#deleteSource) | **DELETE** /sources/{id} | Delete an existing Source
+[**getDocumentation**](DefaultApi.md#getDocumentation) | **GET** /openapi.json | Return this API document in JSON format
 [**listAuthentications**](DefaultApi.md#listAuthentications) | **GET** /authentications | List Authentications
 [**listContainerGroupContainers**](DefaultApi.md#listContainerGroupContainers) | **GET** /container_groups/{id}/containers | List Containers for ContainerGroup
 [**listContainerGroups**](DefaultApi.md#listContainerGroups) | **GET** /container_groups | List ContainerGroups
@@ -22,6 +23,7 @@ Method | HTTP request | Description
 [**listContainerProjects**](DefaultApi.md#listContainerProjects) | **GET** /container_projects | List ContainerProjects
 [**listContainerTemplates**](DefaultApi.md#listContainerTemplates) | **GET** /container_templates | List ContainerTemplates
 [**listContainers**](DefaultApi.md#listContainers) | **GET** /containers | List Containers
+[**listEndpointAuthentications**](DefaultApi.md#listEndpointAuthentications) | **GET** /endpoints/{id}/authentications | List Authentications for Endpoint
 [**listEndpoints**](DefaultApi.md#listEndpoints) | **GET** /endpoints | List Endpoints
 [**listFlavors**](DefaultApi.md#listFlavors) | **GET** /flavors | List Flavors
 [**listOrchestrationStacks**](DefaultApi.md#listOrchestrationStacks) | **GET** /orchestration_stacks | List OrchestrationStacks
@@ -32,6 +34,7 @@ Method | HTTP request | Description
 [**listServiceOfferings**](DefaultApi.md#listServiceOfferings) | **GET** /service_offerings | List ServiceOfferings
 [**listServicePlanServiceInstances**](DefaultApi.md#listServicePlanServiceInstances) | **GET** /service_plans/{id}/service_instances | List ServiceInstances for ServicePlan
 [**listServicePlans**](DefaultApi.md#listServicePlans) | **GET** /service_plans | List ServicePlans
+[**listSourceAvailabilities**](DefaultApi.md#listSourceAvailabilities) | **GET** /sources/{id}/availabilities | List Availabilities for Source
 [**listSourceContainerGroups**](DefaultApi.md#listSourceContainerGroups) | **GET** /sources/{id}/container_groups | List ContainerGroups for Source
 [**listSourceContainerImages**](DefaultApi.md#listSourceContainerImages) | **GET** /sources/{id}/container_images | List ContainerImages for Source
 [**listSourceContainerNodes**](DefaultApi.md#listSourceContainerNodes) | **GET** /sources/{id}/container_nodes | List ContainerNodes for Source
@@ -43,6 +46,7 @@ Method | HTTP request | Description
 [**listSourceServiceInstances**](DefaultApi.md#listSourceServiceInstances) | **GET** /sources/{id}/service_instances | List ServiceInstances for Source
 [**listSourceServiceOfferings**](DefaultApi.md#listSourceServiceOfferings) | **GET** /sources/{id}/service_offerings | List ServiceOfferings for Source
 [**listSourceServicePlans**](DefaultApi.md#listSourceServicePlans) | **GET** /sources/{id}/service_plans | List ServicePlans for Source
+[**listSourceTypeAvailabilities**](DefaultApi.md#listSourceTypeAvailabilities) | **GET** /source_types/{id}/availabilities | List Availabilities for SourceType
 [**listSourceTypeSources**](DefaultApi.md#listSourceTypeSources) | **GET** /source_types/{id}/sources | List Sources for SourceType
 [**listSourceTypes**](DefaultApi.md#listSourceTypes) | **GET** /source_types | List SourceTypes
 [**listSourceVms**](DefaultApi.md#listSourceVms) | **GET** /sources/{id}/vms | List Vms for Source
@@ -83,6 +87,7 @@ Method | HTTP request | Description
 [**updateAuthentication**](DefaultApi.md#updateAuthentication) | **PATCH** /authentications/{id} | Update an existing Authentication
 [**updateEndpoint**](DefaultApi.md#updateEndpoint) | **PATCH** /endpoints/{id} | Update an existing Endpoint
 [**updateSource**](DefaultApi.md#updateSource) | **PATCH** /sources/{id} | Update an existing Source
+[**updateTask**](DefaultApi.md#updateTask) | **PATCH** /tasks/{id} | Update an existing Task
 
 
 <a name="createAuthentication"></a>
@@ -400,6 +405,47 @@ apiInstance.deleteSource(id).then(() => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+<a name="getDocumentation"></a>
+# **getDocumentation**
+> getDocumentation()
+
+Return this API document in JSON format
+
+### Example
+```javascript
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
+
+// Configure HTTP basic authorization: UserSecurity
+let UserSecurity = defaultClient.authentications['UserSecurity'];
+UserSecurity.username = 'YOUR USERNAME';
+UserSecurity.password = 'YOUR PASSWORD';
+
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+apiInstance.getDocumentation().then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -983,6 +1029,59 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="listEndpointAuthentications"></a>
+# **listEndpointAuthentications**
+> AuthenticationsCollection listEndpointAuthentications(id, opts)
+
+List Authentications for Endpoint
+
+Returns an array of Authentication objects
+
+### Example
+```javascript
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
+
+// Configure HTTP basic authorization: UserSecurity
+let UserSecurity = defaultClient.authentications['UserSecurity'];
+UserSecurity.username = 'YOUR USERNAME';
+UserSecurity.password = 'YOUR PASSWORD';
+
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let id = "id_example"; // String | ID of the resource
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listEndpointAuthentications(id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+
+### Return type
+
+[**AuthenticationsCollection**](AuthenticationsCollection.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="listEndpoints"></a>
 # **listEndpoints**
 > EndpointsCollection listEndpoints(opts)
@@ -1189,7 +1288,7 @@ Name | Type | Description  | Notes
 
 <a name="listServiceOfferingIcons"></a>
 # **listServiceOfferingIcons**
-> [ServiceOfferingIcon] listServiceOfferingIcons()
+> ServiceOfferingIconsCollection listServiceOfferingIcons(opts)
 
 List ServiceOfferingIcons
 
@@ -1206,7 +1305,11 @@ UserSecurity.username = 'YOUR USERNAME';
 UserSecurity.password = 'YOUR PASSWORD';
 
 let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
-apiInstance.listServiceOfferingIcons().then((data) => {
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listServiceOfferingIcons(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1215,11 +1318,15 @@ apiInstance.listServiceOfferingIcons().then((data) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
 
 ### Return type
 
-[**[ServiceOfferingIcon]**](ServiceOfferingIcon.md)
+[**ServiceOfferingIconsCollection**](ServiceOfferingIconsCollection.md)
 
 ### Authorization
 
@@ -1481,6 +1588,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ServicePlansCollection**](ServicePlansCollection.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="listSourceAvailabilities"></a>
+# **listSourceAvailabilities**
+> AvailabilitiesCollection listSourceAvailabilities(id, opts)
+
+List Availabilities for Source
+
+Returns an array of Availability objects
+
+### Example
+```javascript
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
+
+// Configure HTTP basic authorization: UserSecurity
+let UserSecurity = defaultClient.authentications['UserSecurity'];
+UserSecurity.username = 'YOUR USERNAME';
+UserSecurity.password = 'YOUR PASSWORD';
+
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let id = "id_example"; // String | ID of the resource
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listSourceAvailabilities(id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+
+### Return type
+
+[**AvailabilitiesCollection**](AvailabilitiesCollection.md)
 
 ### Authorization
 
@@ -2064,6 +2224,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ServicePlansCollection**](ServicePlansCollection.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="listSourceTypeAvailabilities"></a>
+# **listSourceTypeAvailabilities**
+> AvailabilitiesCollection listSourceTypeAvailabilities(id, opts)
+
+List Availabilities for SourceType
+
+Returns an array of Availability objects
+
+### Example
+```javascript
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
+
+// Configure HTTP basic authorization: UserSecurity
+let UserSecurity = defaultClient.authentications['UserSecurity'];
+UserSecurity.username = 'YOUR USERNAME';
+UserSecurity.password = 'YOUR PASSWORD';
+
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let id = "id_example"; // String | ID of the resource
+let opts = {
+  'limit': 100, // Number | The numbers of items to return per page.
+  'offset': 0 // Number | The number of items to skip before starting to collect the result set.
+};
+apiInstance.listSourceTypeAvailabilities(id, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of the resource | 
+ **limit** | **Number**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+
+### Return type
+
+[**AvailabilitiesCollection**](AvailabilitiesCollection.md)
 
 ### Authorization
 
@@ -4016,6 +4229,55 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ID of the resource | 
  **source** | [**Source**](Source.md)| Source attributes to update | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+<a name="updateTask"></a>
+# **updateTask**
+> updateTask(id, task)
+
+Update an existing Task
+
+Updates a Task object
+
+### Example
+```javascript
+import @ManageiqTopologicalInventory from '@manageiq/topological_inventory';
+let defaultClient = @ManageiqTopologicalInventory.ApiClient.instance;
+
+// Configure HTTP basic authorization: UserSecurity
+let UserSecurity = defaultClient.authentications['UserSecurity'];
+UserSecurity.username = 'YOUR USERNAME';
+UserSecurity.password = 'YOUR PASSWORD';
+
+let apiInstance = new @ManageiqTopologicalInventory.DefaultApi();
+let id = "id_example"; // String | ID of the resource
+let task = new @ManageiqTopologicalInventory.Task(); // Task | Task attributes to update
+apiInstance.updateTask(id, task).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of the resource | 
+ **task** | [**Task**](Task.md)| Task attributes to update | 
 
 ### Return type
 

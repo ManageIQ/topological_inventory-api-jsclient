@@ -47,14 +47,29 @@ class ServiceInstance {
         if (data) {
             obj = obj || new ServiceInstance();
 
+            if (data.hasOwnProperty('archived_at')) {
+                obj['archived_at'] = ApiClient.convertToType(data['archived_at'], 'Date');
+            }
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+            }
+            if (data.hasOwnProperty('extra')) {
+                obj['extra'] = ApiClient.convertToType(data['extra'], 'String');
+            }
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            }
+            if (data.hasOwnProperty('last_seen_at')) {
+                obj['last_seen_at'] = ApiClient.convertToType(data['last_seen_at'], 'Date');
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('extra')) {
-                obj['extra'] = ApiClient.convertToType(data['extra'], 'String');
+            if (data.hasOwnProperty('service_offering_id')) {
+                obj['service_offering_id'] = ApiClient.convertToType(data['service_offering_id'], 'String');
+            }
+            if (data.hasOwnProperty('service_plan_id')) {
+                obj['service_plan_id'] = ApiClient.convertToType(data['service_plan_id'], 'String');
             }
             if (data.hasOwnProperty('source_created_at')) {
                 obj['source_created_at'] = ApiClient.convertToType(data['source_created_at'], 'Date');
@@ -62,20 +77,20 @@ class ServiceInstance {
             if (data.hasOwnProperty('source_deleted_at')) {
                 obj['source_deleted_at'] = ApiClient.convertToType(data['source_deleted_at'], 'Date');
             }
-            if (data.hasOwnProperty('service_offering_id')) {
-                obj['service_offering_id'] = ApiClient.convertToType(data['service_offering_id'], 'String');
-            }
             if (data.hasOwnProperty('source_id')) {
                 obj['source_id'] = ApiClient.convertToType(data['source_id'], 'String');
             }
             if (data.hasOwnProperty('source_ref')) {
                 obj['source_ref'] = ApiClient.convertToType(data['source_ref'], 'String');
             }
-            if (data.hasOwnProperty('tenant_id')) {
-                obj['tenant_id'] = ApiClient.convertToType(data['tenant_id'], 'String');
+            if (data.hasOwnProperty('source_region_id')) {
+                obj['source_region_id'] = ApiClient.convertToType(data['source_region_id'], 'String');
             }
-            if (data.hasOwnProperty('archived_at')) {
-                obj['archived_at'] = ApiClient.convertToType(data['archived_at'], 'Date');
+            if (data.hasOwnProperty('subscription_id')) {
+                obj['subscription_id'] = ApiClient.convertToType(data['subscription_id'], 'String');
+            }
+            if (data.hasOwnProperty('updated_at')) {
+                obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
             }
         }
         return obj;
@@ -85,9 +100,31 @@ class ServiceInstance {
 }
 
 /**
+ * @member {Date} archived_at
+ */
+ServiceInstance.prototype['archived_at'] = undefined;
+
+/**
+ * @member {Date} created_at
+ */
+ServiceInstance.prototype['created_at'] = undefined;
+
+/**
+ * Extra information about this object in JSON format
+ * @member {String} extra
+ */
+ServiceInstance.prototype['extra'] = undefined;
+
+/**
+ * ID of the resource
  * @member {String} id
  */
 ServiceInstance.prototype['id'] = undefined;
+
+/**
+ * @member {Date} last_seen_at
+ */
+ServiceInstance.prototype['last_seen_at'] = undefined;
 
 /**
  * @member {String} name
@@ -95,10 +132,16 @@ ServiceInstance.prototype['id'] = undefined;
 ServiceInstance.prototype['name'] = undefined;
 
 /**
- * Extra information about this object in JSON format
- * @member {String} extra
+ * ID of the resource
+ * @member {String} service_offering_id
  */
-ServiceInstance.prototype['extra'] = undefined;
+ServiceInstance.prototype['service_offering_id'] = undefined;
+
+/**
+ * ID of the resource
+ * @member {String} service_plan_id
+ */
+ServiceInstance.prototype['service_plan_id'] = undefined;
 
 /**
  * @member {Date} source_created_at
@@ -111,11 +154,7 @@ ServiceInstance.prototype['source_created_at'] = undefined;
 ServiceInstance.prototype['source_deleted_at'] = undefined;
 
 /**
- * @member {String} service_offering_id
- */
-ServiceInstance.prototype['service_offering_id'] = undefined;
-
-/**
+ * ID of the resource
  * @member {String} source_id
  */
 ServiceInstance.prototype['source_id'] = undefined;
@@ -126,14 +165,21 @@ ServiceInstance.prototype['source_id'] = undefined;
 ServiceInstance.prototype['source_ref'] = undefined;
 
 /**
- * @member {String} tenant_id
+ * ID of the resource
+ * @member {String} source_region_id
  */
-ServiceInstance.prototype['tenant_id'] = undefined;
+ServiceInstance.prototype['source_region_id'] = undefined;
 
 /**
- * @member {Date} archived_at
+ * ID of the resource
+ * @member {String} subscription_id
  */
-ServiceInstance.prototype['archived_at'] = undefined;
+ServiceInstance.prototype['subscription_id'] = undefined;
+
+/**
+ * @member {Date} updated_at
+ */
+ServiceInstance.prototype['updated_at'] = undefined;
 
 
 

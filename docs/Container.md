@@ -3,15 +3,16 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**Object**](.md) |  | [optional] 
-**tenantId** | [**Object**](.md) |  | [optional] 
-**name** | **String** |  | [optional] 
+**archivedAt** | **Date** |  | [optional] 
+**containerGroupId** | **String** | ID of the resource | [optional] 
+**containerImageId** | **String** | ID of the resource | [optional] 
 **cpuLimit** | **Number** |  | [optional] 
 **cpuRequest** | **Number** |  | [optional] 
+**createdAt** | **Date** |  | [optional] 
+**id** | **String** | ID of the resource | [optional] 
 **memoryLimit** | **Number** |  | [optional] 
 **memoryRequest** | **Number** |  | [optional] 
-**containerGroupId** | [**Object**](.md) |  | [optional] 
-**containerImageId** | [**Object**](.md) |  | [optional] 
-**archivedAt** | **Date** |  | [optional] 
+**name** | **String** |  | [optional] 
+**updatedAt** | **Date** |  | [optional] 
 
 
