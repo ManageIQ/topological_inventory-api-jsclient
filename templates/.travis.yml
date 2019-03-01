@@ -8,7 +8,7 @@ deploy:
       branch: master
     script: npx semantic-release
     skip_cleanup: true
-after_success:
-  - if [[ $TRAVIS_PULL_REQUEST == 'false' ]] && [[ $TRAVIS_BRANCH == 'master' ]]; then
-      npm run build;
-    fi
+install:
+- npm install
+script:
+- npm run build
